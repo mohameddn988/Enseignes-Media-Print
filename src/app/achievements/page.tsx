@@ -31,10 +31,17 @@ interface GalleryImage {
 const AchievementsPage = () => {
   const [selectedProject, setSelectedProject] = useState<GalleryImage | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [currentFilter, setCurrentFilter] = useState('Tous');
+  const [currentFilter, setCurrentFilter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const t = useTranslations();
+
+  // Set initial filter after translations are loaded
+  React.useEffect(() => {
+    if (!currentFilter) {
+      setCurrentFilter(t('achievements.page.portfolio.categories.all'));
+    }
+  }, [currentFilter, t]);
 
   // Company milestones
   const milestones = t.raw('achievements.page.timeline.milestones').map((milestone: any, index: number) => {
@@ -49,125 +56,137 @@ const AchievementsPage = () => {
   // Gallery images organized by category
   const galleryImages: GalleryImage[] = [
     // Auvent & Narquise
-    { id: 'auvent-1', src: '/auvent & Narquise/20170323_101919.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-2', src: '/auvent & Narquise/20170324_082904.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-3', src: '/auvent & Narquise/IMG_4390.JPG', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-4', src: '/auvent & Narquise/IMG_4397.JPG', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-5', src: '/auvent & Narquise/Photos-0063.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-6', src: '/auvent & Narquise/Photos-0104.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-7', src: '/auvent & Narquise/Photos-0105.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
-    { id: 'auvent-8', src: '/auvent & Narquise/5380605573460418218.jpg', alt: 'Auvent & Narquise', category: 'Auvent & Narquise' },
+    { id: 'auvent-1', src: '/auvent & Narquise/20170323_101919.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-2', src: '/auvent & Narquise/20170324_082904.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-3', src: '/auvent & Narquise/IMG_4390.JPG', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-4', src: '/auvent & Narquise/IMG_4397.JPG', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-5', src: '/auvent & Narquise/Photos-0063.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-6', src: '/auvent & Narquise/Photos-0104.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-7', src: '/auvent & Narquise/Photos-0105.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
+    { id: 'auvent-8', src: '/auvent & Narquise/5380605573460418218.jpg', alt: 'Auvent & Narquise', category: 'awnings' },
     
     // Boitier lumineuse
-    { id: 'boitier-1', src: '/boitier lumineuse/20220318_121309.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
-    { id: 'boitier-2', src: '/boitier lumineuse/20240328_124126.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
-    { id: 'boitier-3', src: '/boitier lumineuse/20240328_124159.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
-    { id: 'boitier-4', src: '/boitier lumineuse/20240328_132747.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
-    { id: 'boitier-5', src: '/boitier lumineuse/20240906_134657.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
-    { id: 'boitier-6', src: '/boitier lumineuse/IMG_20250425_104737670_HDR.jpg', alt: 'Boitier lumineuse', category: 'Boitier lumineuse' },
+    { id: 'boitier-1', src: '/boitier lumineuse/20220318_121309.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
+    { id: 'boitier-2', src: '/boitier lumineuse/20240328_124126.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
+    { id: 'boitier-3', src: '/boitier lumineuse/20240328_124159.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
+    { id: 'boitier-4', src: '/boitier lumineuse/20240328_132747.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
+    { id: 'boitier-5', src: '/boitier lumineuse/20240906_134657.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
+    { id: 'boitier-6', src: '/boitier lumineuse/IMG_20250425_104737670_HDR.jpg', alt: 'Boitier lumineuse', category: 'lightbox' },
     
     // Enseignes chanel
-    { id: 'chanel-1', src: '/enseignes chanel/20211208_165149.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-2', src: '/enseignes chanel/20220118_152259.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-3', src: '/enseignes chanel/20220217_100611.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-4', src: '/enseignes chanel/20220228_152916.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-5', src: '/enseignes chanel/20220303_110720.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-6', src: '/enseignes chanel/20220401_122402.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-7', src: '/enseignes chanel/20220408_161905.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-8', src: '/enseignes chanel/20220415_120036.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-9', src: '/enseignes chanel/20220912_112222.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-10', src: '/enseignes chanel/20230216_134916.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-11', src: '/enseignes chanel/20230810_121055.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-12', src: '/enseignes chanel/20231026_144030.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-13', src: '/enseignes chanel/20231102_142323.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-14', src: '/enseignes chanel/20240221_094143.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-15', src: '/enseignes chanel/20240314_211926.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-16', src: '/enseignes chanel/20240324_111200.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-17', src: '/enseignes chanel/20240324_111241.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-18', src: '/enseignes chanel/20240822_131338.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-19', src: '/enseignes chanel/20240920_122559.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-20', src: '/enseignes chanel/20241128_112717.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-21', src: '/enseignes chanel/20241203_175211.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-22', src: '/enseignes chanel/20241203_175233.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-23', src: '/enseignes chanel/20241225_150141.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-24', src: '/enseignes chanel/20241225_151017.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-25', src: '/enseignes chanel/20250131_125932.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-26', src: '/enseignes chanel/IMG_20240607_133340193.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-27', src: '/enseignes chanel/IMG_20240614_153300543.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-28', src: '/enseignes chanel/IMG_20240625_202002867_HDR.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-29', src: '/enseignes chanel/IMG_20240628_133509936_HDR.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-30', src: '/enseignes chanel/Photo 017.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
-    { id: 'chanel-31', src: '/enseignes chanel/-1450060136912132737.jpg', alt: 'Enseignes chanel', category: 'Enseignes chanel' },
+    { id: 'chanel-1', src: '/enseignes chanel/20211208_165149.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-2', src: '/enseignes chanel/20220118_152259.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-3', src: '/enseignes chanel/20220217_100611.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-4', src: '/enseignes chanel/20220228_152916.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-5', src: '/enseignes chanel/20220303_110720.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-6', src: '/enseignes chanel/20220401_122402.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-7', src: '/enseignes chanel/20220408_161905.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-8', src: '/enseignes chanel/20220415_120036.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-9', src: '/enseignes chanel/20220912_112222.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-10', src: '/enseignes chanel/20230216_134916.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-11', src: '/enseignes chanel/20230810_121055.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-12', src: '/enseignes chanel/20231026_144030.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-13', src: '/enseignes chanel/20231102_142323.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-14', src: '/enseignes chanel/20240221_094143.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-15', src: '/enseignes chanel/20240314_211926.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-16', src: '/enseignes chanel/20240324_111200.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-17', src: '/enseignes chanel/20240324_111241.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-18', src: '/enseignes chanel/20240822_131338.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-19', src: '/enseignes chanel/20240920_122559.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-20', src: '/enseignes chanel/20241128_112717.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-21', src: '/enseignes chanel/20241203_175211.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-22', src: '/enseignes chanel/20241203_175233.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-23', src: '/enseignes chanel/20241225_150141.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-24', src: '/enseignes chanel/20241225_151017.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-25', src: '/enseignes chanel/20250131_125932.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-26', src: '/enseignes chanel/IMG_20240607_133340193.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-27', src: '/enseignes chanel/IMG_20240614_153300543.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-28', src: '/enseignes chanel/IMG_20240625_202002867_HDR.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-29', src: '/enseignes chanel/IMG_20240628_133509936_HDR.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-30', src: '/enseignes chanel/Photo 017.jpg', alt: 'Enseignes chanel', category: 'channel' },
+    { id: 'chanel-31', src: '/enseignes chanel/-1450060136912132737.jpg', alt: 'Enseignes chanel', category: 'channel' },
     
     // Enseignes en lettres decoupées
-    { id: 'lettres-1', src: '/Enseignes en lettres decoupées/20220219_144518.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-2', src: '/Enseignes en lettres decoupées/20220329_133202.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-3', src: '/Enseignes en lettres decoupées/20230127_135748.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-4', src: '/Enseignes en lettres decoupées/20230207_121345.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-5', src: '/Enseignes en lettres decoupées/20231026_142841.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-6', src: '/Enseignes en lettres decoupées/20240221_102559.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-7', src: '/Enseignes en lettres decoupées/20241217_105942.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-8', src: '/Enseignes en lettres decoupées/20241225_112532.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-9', src: '/Enseignes en lettres decoupées/BOUCHERIE.jpg', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
-    { id: 'lettres-10', src: '/Enseignes en lettres decoupées/IMG_0775.JPG', alt: 'Enseignes en lettres decoupées', category: 'Enseignes en lettres decoupées' },
+    { id: 'lettres-1', src: '/Enseignes en lettres decoupées/20220219_144518.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-2', src: '/Enseignes en lettres decoupées/20220329_133202.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-3', src: '/Enseignes en lettres decoupées/20230127_135748.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-4', src: '/Enseignes en lettres decoupées/20230207_121345.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-5', src: '/Enseignes en lettres decoupées/20231026_142841.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-6', src: '/Enseignes en lettres decoupées/20240221_102559.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-7', src: '/Enseignes en lettres decoupées/20241217_105942.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-8', src: '/Enseignes en lettres decoupées/20241225_112532.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-9', src: '/Enseignes en lettres decoupées/BOUCHERIE.jpg', alt: 'Enseignes en lettres decoupées', category: 'letters' },
+    { id: 'lettres-10', src: '/Enseignes en lettres decoupées/IMG_0775.JPG', alt: 'Enseignes en lettres decoupées', category: 'letters' },
     
     // Enseignes push thrue
-    { id: 'push-1', src: '/enseignes push thrue/20231024_152835.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-2', src: '/enseignes push thrue/20231105_100248.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-3', src: '/enseignes push thrue/20240201_110248.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-4', src: '/enseignes push thrue/20240828_164128.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-5', src: '/enseignes push thrue/20240830_173006.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-6', src: '/enseignes push thrue/20240909_143150.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-7', src: '/enseignes push thrue/20241216_141410.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
-    { id: 'push-8', src: '/enseignes push thrue/Photos-0099.jpg', alt: 'Enseignes push thrue', category: 'Enseignes push thrue' },
+    { id: 'push-1', src: '/enseignes push thrue/20231024_152835.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-2', src: '/enseignes push thrue/20231105_100248.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-3', src: '/enseignes push thrue/20240201_110248.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-4', src: '/enseignes push thrue/20240828_164128.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-5', src: '/enseignes push thrue/20240830_173006.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-6', src: '/enseignes push thrue/20240909_143150.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-7', src: '/enseignes push thrue/20241216_141410.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
+    { id: 'push-8', src: '/enseignes push thrue/Photos-0099.jpg', alt: 'Enseignes push thrue', category: 'pushThru' },
     
     // Enseignes pylone
-    { id: 'pylone-1', src: '/Enseignes pylone/20220721_134026.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-2', src: '/Enseignes pylone/20230919_104255.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-3', src: '/Enseignes pylone/IMG_1171.JPG', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-4', src: '/Enseignes pylone/IMG_1172.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-5', src: '/Enseignes pylone/IMG_2552.JPG', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-6', src: '/Enseignes pylone/IMG_2839.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-7', src: '/Enseignes pylone/IMG_2840.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-8', src: '/Enseignes pylone/IMG_3059.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-9', src: '/Enseignes pylone/IMG_3138.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-10', src: '/Enseignes pylone/IMG_3468.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-11', src: '/Enseignes pylone/IMG_4422.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-12', src: '/Enseignes pylone/Photos-0049.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-13', src: '/Enseignes pylone/Photos-0051.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-14', src: '/Enseignes pylone/Bourgjoie-Enseigne.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-15', src: '/Enseignes pylone/MO_C_4343-1500x1125.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-16', src: '/Enseignes pylone/-1509381425750824831.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
-    { id: 'pylone-17', src: '/Enseignes pylone/3551580532878928232.jpg', alt: 'Enseignes pylone', category: 'Enseignes pylone' },
+    { id: 'pylone-1', src: '/Enseignes pylone/20220721_134026.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-2', src: '/Enseignes pylone/20230919_104255.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-3', src: '/Enseignes pylone/IMG_1171.JPG', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-4', src: '/Enseignes pylone/IMG_1172.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-5', src: '/Enseignes pylone/IMG_2552.JPG', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-6', src: '/Enseignes pylone/IMG_2839.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-7', src: '/Enseignes pylone/IMG_2840.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-8', src: '/Enseignes pylone/IMG_3059.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-9', src: '/Enseignes pylone/IMG_3138.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-10', src: '/Enseignes pylone/IMG_3468.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-11', src: '/Enseignes pylone/IMG_4422.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-12', src: '/Enseignes pylone/Photos-0049.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-13', src: '/Enseignes pylone/Photos-0051.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-14', src: '/Enseignes pylone/Bourgjoie-Enseigne.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-15', src: '/Enseignes pylone/MO_C_4343-1500x1125.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-16', src: '/Enseignes pylone/-1509381425750824831.jpg', alt: 'Enseignes pylone', category: 'pylon' },
+    { id: 'pylone-17', src: '/Enseignes pylone/3551580532878928232.jpg', alt: 'Enseignes pylone', category: 'pylon' },
     
     // Habillage vetrines & mural
-    { id: 'habillage-1', src: '/Habillage vetrines  & mural/20211203_132541.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-2', src: '/Habillage vetrines  & mural/20220825_144442.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-3', src: '/Habillage vetrines  & mural/20230926_172959.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-4', src: '/Habillage vetrines  & mural/20231026_142817.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-5', src: '/Habillage vetrines  & mural/20240313_170709.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-6', src: '/Habillage vetrines  & mural/20240920_122607.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-7', src: '/Habillage vetrines  & mural/IMG_20240612_160112618.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
-    { id: 'habillage-8', src: '/Habillage vetrines  & mural/IMG_20240619_104154381_HDR.jpg', alt: 'Habillage vetrines & mural', category: 'Habillage vetrines  & mural' },
+    { id: 'habillage-1', src: '/Habillage vetrines  & mural/20211203_132541.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-2', src: '/Habillage vetrines  & mural/20220825_144442.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-3', src: '/Habillage vetrines  & mural/20230926_172959.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-4', src: '/Habillage vetrines  & mural/20231026_142817.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-5', src: '/Habillage vetrines  & mural/20240313_170709.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-6', src: '/Habillage vetrines  & mural/20240920_122607.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-7', src: '/Habillage vetrines  & mural/IMG_20240612_160112618.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
+    { id: 'habillage-8', src: '/Habillage vetrines  & mural/IMG_20240619_104154381_HDR.jpg', alt: 'Habillage vetrines & mural', category: 'covering' },
     
     // Neon flex
-    { id: 'neon-1', src: '/Neon flex/20211201_173222.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-2', src: '/Neon flex/20211202_144942.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-3', src: '/Neon flex/20220223_120151.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-4', src: '/Neon flex/20220316_121227.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-5', src: '/Neon flex/20231026_142810.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-6', src: '/Neon flex/IMG_20240503_201128894.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-7', src: '/Neon flex/IMG_20240503_201444516_HDR.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-8', src: '/Neon flex/IMG_20240517_012057248.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-9', src: '/Neon flex/IMG_20240805_131521407_HDR.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-10', src: '/Neon flex/20240927_144236.jpg', alt: 'Neon flex', category: 'Neon flex' },
-    { id: 'neon-11', src: '/Neon flex/20240927_144246.jpg', alt: 'Neon flex', category: 'Neon flex' }
+    { id: 'neon-1', src: '/Neon flex/20211201_173222.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-2', src: '/Neon flex/20211202_144942.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-3', src: '/Neon flex/20220223_120151.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-4', src: '/Neon flex/20220316_121227.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-5', src: '/Neon flex/20231026_142810.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-6', src: '/Neon flex/IMG_20240503_201128894.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-7', src: '/Neon flex/IMG_20240503_201444516_HDR.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-8', src: '/Neon flex/IMG_20240517_012057248.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-9', src: '/Neon flex/IMG_20240805_131521407_HDR.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-10', src: '/Neon flex/20240927_144236.jpg', alt: 'Neon flex', category: 'neon' },
+    { id: 'neon-11', src: '/Neon flex/20240927_144246.jpg', alt: 'Neon flex', category: 'neon' }
   ];
 
   // Filter and pagination logic
-  const filteredImages = currentFilter === 'Tous'
+  const categoryMapping: { [key: string]: string } = {
+    [t('achievements.page.portfolio.categories.all')]: 'all',
+    [t('achievements.page.portfolio.categories.awnings')]: 'awnings',
+    [t('achievements.page.portfolio.categories.lightbox')]: 'lightbox',
+    [t('achievements.page.portfolio.categories.channel')]: 'channel',
+    [t('achievements.page.portfolio.categories.letters')]: 'letters',
+    [t('achievements.page.portfolio.categories.pushThru')]: 'pushThru',
+    [t('achievements.page.portfolio.categories.pylon')]: 'pylon',
+    [t('achievements.page.portfolio.categories.covering')]: 'covering',
+    [t('achievements.page.portfolio.categories.neon')]: 'neon'
+  };
+
+  const filteredImages = currentFilter === t('achievements.page.portfolio.categories.all')
     ? galleryImages
-    : galleryImages.filter(img => img.category === currentFilter);
+    : galleryImages.filter(img => img.category === categoryMapping[currentFilter]);
   
   const totalPages = Math.ceil(filteredImages.length / itemsPerPage);
   const paginatedImages = filteredImages.slice(
@@ -257,32 +276,6 @@ const AchievementsPage = () => {
           </div>
         </div>
       </section> */}
-
-      {/* Timeline Section - Compact */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('achievements.page.timeline.title')}</h2>
-            <p className="text-lg text-gray-600">{t('achievements.page.timeline.subtitle')}</p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {milestones.map((milestone: any, index: number) => {
-              const IconComponent = milestone.icon;
-              return (
-                <div key={index} className="text-center max-w-xs">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white ${milestone.color}`}>
-                    <IconComponent className="w-8 h-8" />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-2">{milestone.year}</div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{milestone.title}</h3>
-                  <p className="text-sm text-gray-600">{milestone.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* Portfolio Section */}
       <section className="py-20 bg-white">
