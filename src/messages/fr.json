@@ -6,6 +6,11 @@
     "achievements": "Nos réalisations",
     "contact": "Contact"
   },
+  "components": {
+    "companiesCarousel": {
+      "logoAlt": "Logo d'entreprise partenaire {index}"
+    }
+  },
   "header": {
     "address": "8236 Rue Pascal-Gagnon Montréal",
     "schedule": "8h-18h | Urgence 7/7",
@@ -17,7 +22,8 @@
     "title": "Valorisez votre marque avec le leader de l'enseigne à Montréal",
     "subtitle": "Enseignes sur mesure, installation experte et plus de 3 décennies d'expérience reconnue.",
     "buttonText": "Demander un devis gratuit",
-    "tagline": "Enseignes sur mesure depuis 30 ans"
+    "tagline": "Enseignes sur mesure depuis 30 ans",
+    "videoFallback": "Votre navigateur ne prend pas en charge la balise vidéo."
   },
   "services": {
     "title": "Nos Services",
@@ -45,14 +51,137 @@
       ]
     },
     "installation": {
-      "title": "Installation et Service Après-Vente",
+      "serviceTitle": "Installation et Service Après-Vente",
       "subtitle": "Mise en œuvre et support",
-      "description": "Installation professionnelle et maintenance continue pour assurer la durabilité et la performance de votre enseigne.",
+      "serviceDescription": "Installation professionnelle et maintenance continue pour assurer la durabilité et la performance de votre enseigne.",
       "details": [
         "Installation sécurisée et conforme",
         "Support et maintenance 7/7",
         "Gestion de l'entretien et des réparations"
-      ]
+      ],
+      "badge": "Installation professionnelle",
+      "title": {
+        "line1": "Installation",
+        "line2": "& Réparation"
+      },
+      "description": "Services d'installation et de maintenance d'enseignes professionnels à Montréal. Précision, fiabilité et excellence dans chaque projet.",
+      "stats": {
+        "installations": "Installations",
+        "support": "Support",
+        "experience": "Années d'expérience",
+        "satisfaction": "Satisfaction"
+      },
+      "services": {
+        "title": "Nos services incluent",
+        "items": [
+          { 
+            "title": "Installation professionnelle", 
+            "desc": "Montage et positionnement expert" 
+          },
+          { 
+            "title": "Réparations d'urgence", 
+            "desc": "Services d'urgence disponible 7/7" 
+          },
+          { 
+            "title": "Entretien préventif", 
+            "desc": "Inspections régulières et entretien" 
+          },
+          { 
+            "title": "Gestion des permis", 
+            "desc": "Conformité réglementaire complète" 
+          }
+        ]
+      },
+      "cta": {
+        "schedule": "Planifier une installation",
+        "quote": "Obtenir un devis"
+      },
+      "image": {
+        "alt": "Services d'installation professionnels MEDIAPRINT"
+      },
+      "infoCards": {
+        "licensed": {
+          "title": "Entièrement licencié",
+          "subtitle": "et assuré",
+          "description": "Certification professionnelle et couverture d'assurance complète pour toutes les installations"
+        },
+        "sameDay": {
+          "title": "Service le jour même",
+          "subtitle": "Service disponible",
+          "description": "Réparations d'urgence et installations urgentes réalisées en quelques heures"
+        }
+      },
+      "certifications": {
+        "licensed": "Entrepreneur licencié",
+        "insured": "Entièrement assuré",
+        "warranty": "Garantie 5 ans",
+        "emergency": "Services d'urgence disponible 7/7"
+      }
+    },
+    "cardsSection": {
+      "title": "Nos services complets",
+      "description": "De la conception à l'installation, nous fournissons des solutions de signalisation complètes pour tous vos besoins d'affaires à Montréal.",
+      "progress": {
+        "service": "Service"
+      }
+    },
+    "cards": [
+      {
+        "name": "ENSEIGNES & LETTRAGE",
+        "items": [
+          "Boîtiers lumineux",
+          "Enseignes à lettres boîtiers - Lettres, chiffres et formes découpées",
+          "Enseignes pylônes - Stèles - Signalisation intérieure"
+        ]
+      },
+      {
+        "name": "CONCEPTION & DESIGN",
+        "items": [
+          "Logos et images corporatives",
+          "Affiches publicitaires - Affiches promotionnelles",
+          "Panneaux de chantier - Panneaux de location / vente",
+          "Bannières - Oriflammes"
+        ]
+      },
+      {
+        "name": "MARQUAGE NUMÉRIQUE, HABILLAGE & IMPRESSION",
+        "items": [
+          "Murs - Vitrines",
+          "Portes et fenêtres",
+          "Véhicules",
+          "Bateaux - Planchers"
+        ]
+      },
+      {
+        "name": "AUVENTS & MARQUISES",
+        "items": [
+          "Auvents",
+          "Marquises"
+        ]
+      },
+      {
+        "name": "ÉCLAIRAGE",
+        "items": [
+          "Éclairage intérieur",
+          "Éclairage extérieur"
+        ]
+      },
+      {
+        "name": "SUPPORTS GRAPHIQUES & STANDS D'EXPOSITION",
+        "items": [
+          "Porte-bannières - Drapeaux",
+          "Comptoirs et présentoirs - Stands d'exposition"
+        ]
+      }
+    ],
+    "overview": {
+      "serviceLabel": "Service",
+      "keyFeatures": "Caractéristiques clés",
+      "cta": {
+        "title": "Prêt à transformer",
+        "titleHighlight": "votre entreprise?",
+        "freeConsultation": "Obtenir une consultation gratuite"
+      }
     },
     "viewDetails": "Voir les détails",
     "getQuote": "Obtenir un devis",
@@ -186,6 +315,38 @@
   "achievements": {
     "title": "Nos Réalisations",
     "subtitle": "Découvrez quelques-uns de nos projets les plus remarquables",
+    "video": {
+      "title": "Trois décennies d'excellence",
+      "hdQuality": "Qualité HD",
+      "companyPresentation": "● Présentation de l'entreprise",
+      "titleWithYears": "Enseignes MEDIAPRINT - 30 ans d'excellence",
+      "presentationVideo": "Vidéo de présentation",
+      "clientTestimonialsTitle": "Ce que disent nos clients",
+      "clientTestimonialsDescription": "Avis réels d'entreprises montréalaises qui nous confient leurs besoins en enseignes",
+      "ctaTitle": "Prêt à rejoindre nos histoires de succès ?",
+      "ctaDescription": "Créons quelque chose d'exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd'hui.",
+      "viewPortfolio": "Voir le portfolio",
+      "testimonials": [
+        {
+          "quote": "Qualité exceptionnelle et service professionnel. Notre nouvelle enseigne a considérablement amélioré la visibilité de notre entreprise.",
+          "author": "Marie Dubois",
+          "company": "Restaurant Le Gourmet",
+          "location": "Centre-ville de Montréal"
+        },
+        {
+          "quote": "De la conception à l'installation, l'équipe a dépassé nos attentes. Je recommande vivement leurs services.",
+          "author": "Jean-Pierre Martin",
+          "company": "Martin & Associés",
+          "location": "Westmount"
+        },
+        {
+          "quote": "Professionnels, fiables et créatifs. Ils ont complètement transformé notre devanture.",
+          "author": "Sarah Chen",
+          "company": "Clinique Médicale Chen",
+          "location": "Plateau Mont-Royal"
+        }
+      ]
+    },
     "page": {
       "timeline": {
         "title": "Notre parcours",
@@ -234,6 +395,7 @@
         "projectDetails": {
           "location": "Montreal, QC",
           "features": "Caractéristiques",
+          "description": "Réalisation professionnelle d'enseigne de qualité supérieure",
           "featuresList": [
             "Installation professionnelle",
             "Qualité supérieure"
@@ -411,7 +573,8 @@
       "address": {
         "title": "Venez nous voir",
         "primary": "8236 Rue Pascal-Gagnon Montréal",
-        "directions": "Obtenir l'itinéraire"
+        "directions": "Obtenir l'itinéraire",
+        "ourLocation": "Notre emplacement"
       },
       "hours": {
         "title": "Heures d'ouverture",
@@ -439,11 +602,10 @@
     "services": {
       "title": "Nos services",
       "items": [
-        "Enseignes et lettrage sur mesure",
-        "Impression numérique",
-        "Auvents et marquises",
-        "Habillage mural",
-        "Stands d'exposition"
+        "Gestion de permis",
+        "Conception",
+        "Fabrication",
+        "Installation & service après-vente"
       ]
     },
     "quickLinks": {

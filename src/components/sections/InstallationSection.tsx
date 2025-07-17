@@ -3,10 +3,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import ContactModal from '@/components/common/ContactModal'
 
 const InstallationSection = () => {
   const [showContactModal, setShowContactModal] = useState(false);
+  const t = useTranslations();
 
   return (
     <section className="py-32 bg-white relative">
@@ -26,14 +28,14 @@ const InstallationSection = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full">
                 <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
-                Installation professionnelle
+                {t('installation.badge')}
               </div>
               
               <div className="space-y-4">
                 <h2 className="text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1]">
-                  Installation
+                  {t('installation.title.line1')}
                   <br />
-                  <span className="font-semibold">& Réparation</span>
+                  <span className="font-semibold">{t('installation.title.line2')}</span>
                   <br />
                   <span className="font-semibold" style={{color: '#32B8F1'}}></span>
                 </h2>
@@ -42,7 +44,7 @@ const InstallationSection = () => {
               </div>
               
               <p className="text-lg text-gray-600 leading-relaxed max-w-md">
-                {"Services d'installation et de maintenance d'enseignes professionnels à Montréal. Précision, fiabilité et excellence dans chaque projet."}
+                {t('installation.description')}
               </p>
             </div>
 
@@ -50,33 +52,28 @@ const InstallationSection = () => {
             <div className="grid grid-cols-2 gap-8">
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">1500+</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Installations</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide">{t('installation.stats.installations')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">7/7</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Support</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide">{t('installation.stats.support')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">30+</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">{"Années d'expérience"}</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide">{t('installation.stats.experience')}</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">100%</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Satisfaction</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide">{t('installation.stats.satisfaction')}</div>
               </div>
             </div>
 
             {/* Service Features */}
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-gray-900">Nos services incluent</h3>
+              <h3 className="text-xl font-semibold text-gray-900">{t('installation.services.title')}</h3>
               
               <div className="space-y-4">
-                {[
-                  { title: "Installation professionnelle", desc: "Montage et positionnement expert" },
-                  { title: "Réparations d'urgence", desc: "Services d'urgence disponible 7/7" },
-                  { title: "Entretien préventif", desc: "Inspections régulières et entretien" },
-                  { title: "Gestion des permis", desc: "Conformité réglementaire complète" }
-                ].map((service, index) => (
+                {t.raw('installation.services.items').map((service: any, index: number) => (
                   <div key={index} className="flex items-start space-x-4 group">
                     <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style={{backgroundColor: '#32B8F1'}}>
                       <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -98,7 +95,7 @@ const InstallationSection = () => {
                 onClick={() => setShowContactModal(true)}
                 className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center group"
               >
-                Planifier une installation
+                {t('installation.cta.schedule')}
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -108,7 +105,7 @@ const InstallationSection = () => {
                 onClick={() => setShowContactModal(true)}
                 className="border-2 border-gray-200 hover:border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-medium transition-all duration-300"
               >
-                Obtenir un devis
+                {t('installation.cta.quote')}
               </button>
             </div>
           </div>
@@ -127,7 +124,7 @@ const InstallationSection = () => {
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
                   <Image
                     src="/installation.jpg"
-                    alt="MEDIAPRINT Professional Installation Services"
+                    alt={t('installation.image.alt')}
                     fill
                     className="object-cover object-center"
                     priority
@@ -144,11 +141,11 @@ const InstallationSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Entièrement licencié</div>
-                    <div className="text-sm text-gray-500">et assuré</div>
+                    <div className="font-semibold text-gray-900">{t('installation.infoCards.licensed.title')}</div>
+                    <div className="text-sm text-gray-500">{t('installation.infoCards.licensed.subtitle')}</div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">{"Certification professionnelle et couverture d'assurance complète pour toutes les installations"}</div>
+                <div className="text-xs text-gray-400">{t('installation.infoCards.licensed.description')}</div>
               </div>
 
               <div className="absolute -right-8 bottom-1/4 bg-white rounded-xl shadow-lg border border-gray-100 p-6 max-w-xs hidden lg:block">
@@ -159,11 +156,11 @@ const InstallationSection = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Service le jour même</div>
-                    <div className="text-sm text-gray-500">Service disponible</div>
+                    <div className="font-semibold text-gray-900">{t('installation.infoCards.sameDay.title')}</div>
+                    <div className="text-sm text-gray-500">{t('installation.infoCards.sameDay.subtitle')}</div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">{"Réparations d'urgence et installations urgentes réalisées en quelques heures"}</div>
+                <div className="text-xs text-gray-400">{t('installation.infoCards.sameDay.description')}</div>
               </div>
 
               {/* Subtle accent elements */}
@@ -181,25 +178,25 @@ const InstallationSection = () => {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Entrepreneur licencié</span>
+              <span>{t('installation.certifications.licensed')}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-gray-500">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <span>Entièrement assuré</span>
+              <span>{t('installation.certifications.insured')}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-gray-500">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
-              <span>Garantie 5 ans</span>
+              <span>{t('installation.certifications.warranty')}</span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-gray-500">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>{"Services d'urgence disponible 7/7"}</span>
+              <span>{t('installation.certifications.emergency')}</span>
             </div>
           </div>
         </div>

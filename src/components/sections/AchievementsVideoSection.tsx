@@ -6,6 +6,13 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import ContactModal from '@/components/common/ContactModal';
 
+interface Testimonial {
+  quote: string;
+  author: string;
+  company: string;
+  location: string;
+}
+
 const AchievementsVideoSection = () => {
   const [showContactModal, setShowContactModal] = useState(false);
   const t = useTranslations();
@@ -32,31 +39,12 @@ const AchievementsVideoSection = () => {
     {
       icon: MapPin,
       number: "50+",
-      title: "Sites desservis",
-      description: "Dans tout le Grand Montréal"
+      title: t('stats.servicesOffered'),
+      description: t('stats.servicesOfferedDesc')
     }
   ];
 
-  const testimonials = [
-    {
-      quote: "Exceptional quality and professional service. Our new signage has significantly improved our business visibility.",
-      author: "Marie Dubois",
-      company: "Restaurant Le Gourmet",
-      location: "Downtown Montreal"
-    },
-    {
-      quote: "From design to installation, the team exceeded our expectations. Highly recommend their services.",
-      author: "Jean-Pierre Martin",
-      company: "Martin & Associates",
-      location: "Westmount"
-    },
-    {
-      quote: "Professional, reliable, and creative. They transformed our storefront completely.",
-      author: "Sarah Chen",
-      company: "Chen Medical Clinic",
-      location: "Plateau Mont-Royal"
-    }
-  ];
+  const testimonials: Testimonial[] = t.raw('achievements.video.testimonials');
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -68,7 +56,7 @@ const AchievementsVideoSection = () => {
             {t('achievements.title')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            {"Trois décennies d'excellence"}
+            {t('achievements.video.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {t('achievements.subtitle')}
@@ -93,10 +81,10 @@ const AchievementsVideoSection = () => {
 
                 {/* Video Overlay Elements */}
                 <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <span className="text-white text-sm font-medium">Qualité HD</span>
+                  <span className="text-white text-sm font-medium">{t('achievements.video.hdQuality')}</span>
                 </div>
                 <div className="absolute top-4 right-4 rounded-lg px-3 py-2" style={{backgroundColor: '#32B8F1'}}>
-                  <span className="text-white text-sm font-medium">{"● Présentation de l'entreprise"}</span>
+                  <span className="text-white text-sm font-medium">{t('achievements.video.companyPresentation')}</span>
                 </div>
               </div>
 
@@ -105,9 +93,9 @@ const AchievementsVideoSection = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#32B8F1'}}></div>
-                    <span className="text-white text-sm font-medium">{"Enseignes MEDIAPRINT - 30 ans d'excellence"}</span>
+                    <span className="text-white text-sm font-medium">{t('achievements.video.titleWithYears')}</span>
                   </div>
-                  <div className="text-gray-400 text-sm">Vidéo de présentation</div>
+                  <div className="text-gray-400 text-sm">{t('achievements.video.presentationVideo')}</div>
                 </div>
               </div>
             </div>
@@ -150,10 +138,10 @@ const AchievementsVideoSection = () => {
         <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-100">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Ce que disent nos clients
+              {t('achievements.video.clientTestimonialsTitle')}
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {"Avis réels d'entreprises montréalaises qui nous confient leurs besoins en enseignes"}
+              {t('achievements.video.clientTestimonialsDescription')}
             </p>
           </div>
 
@@ -188,9 +176,9 @@ const AchievementsVideoSection = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">Prêt à rejoindre nos histoires de succès ?</h3>
+            <h3 className="text-3xl font-bold mb-4">{t('achievements.video.ctaTitle')}</h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              {"Créons quelque chose d'exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd'hui."}
+              {t('achievements.video.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
@@ -207,7 +195,7 @@ const AchievementsVideoSection = () => {
                 href="/achievements"
                 className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
               >
-                Voir le portfolio
+                {t('achievements.video.viewPortfolio')}
               </Link>
             </div>
           </div>

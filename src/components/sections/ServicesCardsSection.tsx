@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface ServiceItem {
@@ -95,57 +96,9 @@ const ServicesCardsSection = () => {
     target: containerRef,
     offset: ["start start", "end end"]
   });
+  const t = useTranslations();
 
-  const services: ServiceItem[] = [
-    {
-      name: "ENSEIGNES & LETTRAGE",
-      items: [
-        "Boîtiers lumineux",
-        "Enseignes à lettres boîtiers - Lettres, chiffres et formes découpées", 
-        "Enseignes pylônes - Stèles - Signalisation intérieure"
-      ]
-    },
-    {
-      name: "CONCEPTION & DESIGN",
-      items: [
-        "Logos et images corporatives",
-        "Affiches publicitaires - Affiches promotionnelles",
-        "Panneaux de chantier - Panneaux de location / vente",
-        "Bannières - Oriflammes"
-      ]
-    },
-    {
-      name: "MARQUAGE NUMÉRIQUE, HABILLAGE & IMPRESSION",
-      items: [
-        "Murs - Vitrines",
-        "Portes et fenêtres",
-        "Véhicules",
-        "Bateaux - Planchers"
-      ]
-    },
-    {
-      name: "AUVENTS & MARQUISES", 
-      items: [
-        "Auvents",
-        "Marquises"
-      ]
-    },
-    {
-      name: "ÉCLAIRAGE",
-      items: [
-        "Éclairage intérieur",
-        "Éclairage extérieur"
-      ]
-    },
-    {
-      name: "SUPPORTS GRAPHIQUES & STANDS D'EXPOSITION",
-      items: [
-        "Porte-bannières - Drapeaux",
-        "Comptoirs et présentoirs - Stands d'exposition"
-      ]
-    }
-  ];
-
+  const services: ServiceItem[] = t.raw('services.cards');
   const icons = ["🏷️", "🎨", "🖨️", "☂️", "💡", "🎪"];
 
   return (
@@ -153,10 +106,10 @@ const ServicesCardsSection = () => {
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Nos services complets
+            {t('services.cardsSection.title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-            De la conception à l'installation, nous fournissons des solutions de signalisation complètes pour tous vos besoins d'affaires à Montréal.
+            {t('services.cardsSection.description')}
           </p>
         </div>
 
@@ -177,9 +130,9 @@ const ServicesCardsSection = () => {
         <div className="fixed bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-50">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg border border-gray-200">
             <div className="flex items-center space-x-2 sm:space-x-3">
-              <span className="text-xs sm:text-sm font-medium text-gray-600">Service</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-600">{t('services.cardsSection.progress.service')}</span>
               <div className="flex space-x-1">
-                {services.map((_, index) => (
+                {services.map((_: any, index: number) => (
                   <motion.div
                     key={index}
                     className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"

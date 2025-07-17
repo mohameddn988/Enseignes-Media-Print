@@ -490,7 +490,7 @@ const AchievementsPage = () => {
                 </div>
               </div>
               
-              <p className="text-gray-700 mb-6">Réalisation professionnelle d&apos;enseigne de qualité supérieure</p>
+              <p className="text-gray-700 mb-6">{t('achievements.page.portfolio.projectDetails.description')}</p>
               
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('achievements.page.portfolio.projectDetails.features')}</h4>

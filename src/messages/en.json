@@ -6,6 +6,11 @@
     "achievements": "Our Achievements",
     "contact": "Contact"
   },
+  "components": {
+    "companiesCarousel": {
+      "logoAlt": "Partner company logo {index}"
+    }
+  },
   "header": {
     "address": "8236 Pascal-Gagnon Street Montreal",
     "schedule": "8am-6pm | Emergency 24/7",
@@ -17,7 +22,8 @@
     "title": "Enhance your brand with Montreal's signage leader",
     "subtitle": "Custom signs, expert installation and over 3 decades of recognized experience.",
     "buttonText": "Request a free quote",
-    "tagline": "Custom signs for 30 years"
+    "tagline": "Custom signs for 30 years",
+    "videoFallback": "Your browser does not support the video tag."
   },
   "services": {
     "title": "Our Services",
@@ -45,14 +51,137 @@
       ]
     },
     "installation": {
-      "title": "Installation & After-Sales Service",
+      "serviceTitle": "Installation & After-Sales Service",
       "subtitle": "Implementation and support",
-      "description": "Professional installation and ongoing maintenance to ensure the durability and performance of your signage.",
+      "serviceDescription": "Professional installation and ongoing maintenance to ensure the durability and performance of your signage.",
       "details": [
         "Safe and compliant installation",
         "24/7 support and maintenance",
         "Maintenance and repair management"
-      ]
+      ],
+      "badge": "Professional Installation",
+      "title": {
+        "line1": "Installation",
+        "line2": "& Repair"
+      },
+      "description": "Professional sign installation and maintenance services in Montreal. Precision, reliability, and excellence in every project.",
+      "stats": {
+        "installations": "Installations",
+        "support": "Support",
+        "experience": "Years of Experience",
+        "satisfaction": "Satisfaction"
+      },
+      "services": {
+        "title": "Our services include",
+        "items": [
+          { 
+            "title": "Professional Installation", 
+            "desc": "Expert mounting and positioning" 
+          },
+          { 
+            "title": "Emergency Repairs", 
+            "desc": "Emergency services available 7/7" 
+          },
+          { 
+            "title": "Preventive Maintenance", 
+            "desc": "Regular inspections and upkeep" 
+          },
+          { 
+            "title": "Permit Management", 
+            "desc": "Complete regulatory compliance" 
+          }
+        ]
+      },
+      "cta": {
+        "schedule": "Schedule an Installation",
+        "quote": "Get a Quote"
+      },
+      "image": {
+        "alt": "MEDIAPRINT Professional Installation Services"
+      },
+      "infoCards": {
+        "licensed": {
+          "title": "Fully Licensed",
+          "subtitle": "and insured",
+          "description": "Professional certification and comprehensive insurance coverage for all installations"
+        },
+        "sameDay": {
+          "title": "Same-Day Service",
+          "subtitle": "Available service",
+          "description": "Emergency repairs and urgent installations completed within hours"
+        }
+      },
+      "certifications": {
+        "licensed": "Licensed Contractor",
+        "insured": "Fully Insured",
+        "warranty": "5-Year Warranty",
+        "emergency": "Emergency services available 7/7"
+      }
+    },
+    "cardsSection": {
+      "title": "Our Complete Services",
+      "description": "From design to installation, we provide comprehensive signage solutions for all your business needs in Montreal.",
+      "progress": {
+        "service": "Service"
+      }
+    },
+    "cards": [
+      {
+        "name": "SIGNS & LETTERING",
+        "items": [
+          "Light boxes",
+          "Box letter signs - Cut letters, numbers and shapes",
+          "Pylon signs - Steles - Interior signage"
+        ]
+      },
+      {
+        "name": "DESIGN & CONCEPTION",
+        "items": [
+          "Logos and corporate images",
+          "Advertising posters - Promotional posters",
+          "Construction signs - Rental / sale signs",
+          "Banners - Flags"
+        ]
+      },
+      {
+        "name": "DIGITAL MARKING, COVERING & PRINTING",
+        "items": [
+          "Walls - Windows",
+          "Doors and windows",
+          "Vehicles",
+          "Boats - Floors"
+        ]
+      },
+      {
+        "name": "AWNINGS & CANOPIES",
+        "items": [
+          "Awnings",
+          "Canopies"
+        ]
+      },
+      {
+        "name": "LIGHTING",
+        "items": [
+          "Interior lighting",
+          "Exterior lighting"
+        ]
+      },
+      {
+        "name": "GRAPHIC SUPPORTS & EXHIBITION STANDS",
+        "items": [
+          "Banner holders - Flags",
+          "Counters and displays - Exhibition stands"
+        ]
+      }
+    ],
+    "overview": {
+      "serviceLabel": "Service",
+      "keyFeatures": "Key Features",
+      "cta": {
+        "title": "Ready to transform",
+        "titleHighlight": "your business?",
+        "freeConsultation": "Get a free consultation"
+      }
     },
     "viewDetails": "View Details",
     "getQuote": "Get Quote",
@@ -186,6 +315,38 @@
   "achievements": {
     "title": "Our Achievements",
     "subtitle": "Discover some of our most remarkable projects",
+    "video": {
+      "title": "Three decades of excellence",
+      "hdQuality": "HD Quality",
+      "companyPresentation": "● Company Presentation",
+      "titleWithYears": "Enseignes MEDIAPRINT - 30 years of excellence",
+      "presentationVideo": "Presentation Video",
+      "clientTestimonialsTitle": "What our clients say",
+      "clientTestimonialsDescription": "Real testimonials from Montreal businesses that trust us with their signage needs",
+      "ctaTitle": "Ready to join our success stories?",
+      "ctaDescription": "Let's create something exceptional for your business. Get your free consultation today.",
+      "viewPortfolio": "View Portfolio",
+      "testimonials": [
+        {
+          "quote": "Exceptional quality and professional service. Our new signage has significantly improved our business visibility.",
+          "author": "Marie Dubois",
+          "company": "Restaurant Le Gourmet",
+          "location": "Downtown Montreal"
+        },
+        {
+          "quote": "From design to installation, the team exceeded our expectations. Highly recommend their services.",
+          "author": "Jean-Pierre Martin",
+          "company": "Martin & Associates",
+          "location": "Westmount"
+        },
+        {
+          "quote": "Professional, reliable, and creative. They transformed our storefront completely.",
+          "author": "Sarah Chen",
+          "company": "Chen Medical Clinic",
+          "location": "Plateau Mont-Royal"
+        }
+      ]
+    },
     "page": {
       "timeline": {
         "title": "Our Journey",
@@ -234,6 +395,7 @@
         "projectDetails": {
           "location": "Montreal, QC",
           "features": "Features",
+          "description": "Professional creation of superior quality signage",
           "featuresList": [
             "Professional Installation",
             "Superior Quality"
@@ -411,7 +573,8 @@
       "address": {
         "title": "Visit Us",
         "primary": "8236 Rue Pascal-Gagnon Montreal",
-        "directions": "Get Directions"
+        "directions": "Get Directions",
+        "ourLocation": "Our Location"
       },
       "hours": {
         "title": "Opening Hours",
@@ -439,11 +602,10 @@
     "services": {
       "title": "Our Services",
       "items": [
-        "Custom Signs and Lettering",
-        "Digital Printing",
-        "Awnings and Canopies",
-        "Wall Covering",
-        "Exhibition Stands"
+        "Permit Management",
+        "Design",
+        "Manufacturing",
+        "Installation & After-sales Service"
       ]
     },
     "quickLinks": {

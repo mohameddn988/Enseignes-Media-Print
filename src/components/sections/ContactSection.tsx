@@ -334,7 +334,7 @@ const ContactSection = () => {
               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg">
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" style={{color: '#32B8F1'}} />
-                  <span className="text-gray-900 text-sm font-medium">Our Location</span>
+                  <span className="text-gray-900 text-sm font-medium">{t('contact.info.address.ourLocation')}</span>
                 </div>
               </div>
               

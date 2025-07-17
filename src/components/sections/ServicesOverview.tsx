@@ -73,9 +73,9 @@ const ServicesOverview = () => {
     },
     // 4. Installation & After-Sales Service
     {
-      title: t('services.installation.title'),
+      title: t('services.installation.serviceTitle'),
       subtitle: t('services.installation.subtitle'),
-      description: t('services.installation.description'),
+      description: t('services.installation.serviceDescription'),
       details: t.raw('services.installation.details'),
       image: "/installation.jpg",
       icon: (
@@ -136,7 +136,7 @@ const ServicesOverview = () => {
                       {service.icon}
                     </div>
                     <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Service {String(index + 1).padStart(2, '0')}
+                      {t('services.overview.serviceLabel')} {String(index + 1).padStart(2, '0')}
                     </div>
                   </div>
                   
@@ -157,9 +157,9 @@ const ServicesOverview = () => {
 
                 {/* Service Details */}
                 <div className="space-y-4">
-                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">Caractéristiques clés</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">{t('services.overview.keyFeatures')}</h4>
                   <div className="space-y-3">
-                    {service.details.map((detail, detailIndex) => (
+                    {service.details.map((detail: string, detailIndex: number) => (
                       <div key={detailIndex} className="flex items-start space-x-4 group">
                         <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{backgroundColor: '#32B8F1'}}>
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
@@ -228,9 +228,9 @@ const ServicesOverview = () => {
             <div className="relative space-y-8">
               <div className="space-y-4">
                 <h3 className="text-4xl lg:text-5xl font-semibold text-white leading-tight">
-                  Prêt à transformer
+                  {t('services.overview.cta.title')}
                   <br />
-                  <span style={{color: '#32B8F1'}}>votre entreprise?</span>
+                  <span style={{color: '#32B8F1'}}>{t('services.overview.cta.titleHighlight')}</span>
                 </h3>
                 <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                   {t('services.partnerDescription')}
@@ -262,7 +262,7 @@ const ServicesOverview = () => {
                   onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#e91e63'}
                   onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FC32A2'}
                 >
-                  Obtenir une consultation gratuite
+                  {t('services.overview.cta.freeConsultation')}
                 </button>
                 <Link
                   href="/achievements"

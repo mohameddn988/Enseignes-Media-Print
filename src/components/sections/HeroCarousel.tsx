@@ -29,7 +29,7 @@ const HeroCarousel = () => {
           }}
         >
           <source src="https://storage.googleapis.com/work_images/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          {t('hero.videoFallback')}
         </video>
         <div className="absolute inset-0 bg-black/60"></div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 // Simple infinite scrolling carousel of partner/company logos
 // Duplicate the logos array to create the seamless loop effect.
@@ -13,13 +14,15 @@ const logos: string[] = [
 ];
 
 const CompaniesCarousel: React.FC = () => {
+  const t = useTranslations();
+  
   return (
     <div className="overflow-hidden py-10 bg-white w-full">
       {/* The scroller wraps logos twice for infinite effect */}
       <div className="flex items-center whitespace-nowrap" style={{ animation: 'scroll 25s linear infinite' }}>
         {logos.concat(logos).map((src, index) => (
           <div key={index} className="px-8 flex-shrink-0">
-            <Image src={src} alt={`Company logo ${index}`} width={120} height={60} className="object-contain w-28 h-12" />
+            <Image src={src} alt={t('components.companiesCarousel.logoAlt', { index: index % logos.length + 1 })} width={120} height={60} className="object-contain w-28 h-12" />
           </div>
         ))}
       </div>
