@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -6,6 +7,7 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+  const t = useTranslations();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,18 +36,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
       <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl transform transition-all">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-100">
-          <h2 className="text-2xl font-bold text-gray-900">Obtenir un devis gratuit</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{t('contact.form.title')}</h2>
           <button
             onClick={onClose}
             className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
-            aria-label="Fermer le modal"
+            aria-label={t('common.close')}
           >
             <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
-        <p className="text-center text-sm text-gray-600 mt-4">Nous vous répondrons dans les 24&nbsp;heures.</p>
+        <p className="text-center text-sm text-gray-600 mt-4">{t('contact.form.subtitle')}</p>
         
         {/* Form Content */}
         <div className="p-6">
@@ -53,7 +55,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom complet *
+                  {t('contact.form.fields.name.label')}
                 </label>
                 <input
                   type="text"
@@ -62,12 +64,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   onChange={handleInputChange}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="Votre nom"
+                  placeholder={t('contact.form.fields.name.placeholder')}
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email *
+                  {t('contact.form.fields.email.label')}
                 </label>
                 <input
                   type="email"
@@ -76,7 +78,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   onChange={handleInputChange}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="votre@email.com"
+                  placeholder={t('contact.form.fields.email.placeholder')}
                 />
               </div>
             </div>
@@ -84,7 +86,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Téléphone
+                  {t('contact.form.fields.phone.label')}
                 </label>
                 <input
                   type="tel"
@@ -92,12 +94,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="+1 (514) 000-0000"
+                  placeholder={t('contact.form.fields.phone.placeholder')}
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Entreprise
+                  {t('contact.form.fields.company.label')}
                 </label>
                 <input
                   type="text"
@@ -105,36 +107,32 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   value={formData.company}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                  placeholder="Nom de l'entreprise"
+                  placeholder={t('contact.form.fields.company.placeholder')}
                 />
               </div>
             </div>
             
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Service requis
+                {t('contact.form.fields.service.label')}
               </label>
               <select 
                 name="service"
                 value={formData.service}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                aria-label="Service requis"
+                aria-label={t('contact.form.fields.service.label')}
               >
-                <option value="">Sélectionnez un service</option>
-                <option value="enseignes-led">Enseignes LED</option>
-                <option value="enseignes-vitrine">Enseignes de vitrine</option>
-                <option value="pylones">Pylônes</option>
-                <option value="mural">Habillage  mural</option>
-                <option value="bannieres">Bannières</option>
-                <option value="installation">Installation</option>
-                <option value="maintenance">Maintenance</option>
+                <option value="">{t('contact.form.fields.service.placeholder')}</option>
+                {Object.entries(t.raw('achievements.page.contactModal.form.serviceOptions') as Record<string, string>).map(([key, value]) => (
+                  <option key={key} value={key}>{value}</option>
+                ))}
               </select>
             </div>
             
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Détails du projet *
+                {t('contact.form.fields.message.label')}
               </label>
               <textarea
                 name="message"
@@ -143,7 +141,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 required
                 rows={3}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Décrivez votre projet d'enseigne..."
+                placeholder={t('contact.form.fields.message.placeholder')}
               />
             </div>
             
@@ -153,13 +151,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 onClick={onClose}
                 className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                Annuler
+                {t('achievements.page.contactModal.form.cancel')}
               </button>
               <button
                 type="submit"
                 className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Envoyer la demande
+                {t('achievements.page.contactModal.form.send')}
               </button>
             </div>
           </form>

@@ -2,30 +2,32 @@
 
 import React, { useState } from 'react';
 import { Award, Users, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import ContactModal from '@/components/common/ContactModal';
 
 const AchievementsVideoSection = () => {
   const [showContactModal, setShowContactModal] = useState(false);
+  const t = useTranslations();
 
   const achievements = [
     {
       icon: Award,
       number: "1500+",
-      title: "Enseignes installées",
-      description: "Installations professionnelles à Montréal"
+      title: t('stats.projectsCompleted'),
+      description: t('stats.projectsCompletedDesc')
     },
     {
       icon: Users,
       number: "800+",
-      title: "Clients satisfaits",
-      description: "Des entreprises font confiance à notre expertise"
+      title: t('stats.happyClients'),
+      description: t('stats.happyClientsDesc')
     },
     {
       icon: Calendar,
       number: "30+",
-      title: "Années d'expérience",
-      description: "Leader du secteur depuis 2013"
+      title: t('stats.yearsExperience'),
+      description: t('stats.yearsExperienceDesc')
     },
     {
       icon: MapPin,
@@ -63,13 +65,13 @@ const AchievementsVideoSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4" style={{backgroundColor: '#dff2fd', color: '#1578a9'}}>
             <Award className="w-4 h-4 mr-2" />
-            Nos réalisations
+            {t('achievements.title')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             {"Trois décennies d'excellence"}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            {"Découvrez notre parcours de transformation du paysage commercial montréalais avec des solutions d'enseignes haut de gamme, projet après projet."}
+            {t('achievements.subtitle')}
           </p>
         </div>
 
@@ -198,7 +200,7 @@ const AchievementsVideoSection = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e91e63')} 
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FC32A2')}
               >
-                Obtenir un devis gratuit
+                {t('common.getQuote')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </button>
               <Link

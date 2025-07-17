@@ -3,12 +3,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import ContactModal from '@/components/common/ContactModal';
 
 const ServicesOverview = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [showContactModal, setShowContactModal] = useState(false);
+  const t = useTranslations();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,9 +34,9 @@ const ServicesOverview = () => {
   const services = [
     // 1. Permit Management
     {
-      title: 'Permit Management',
-      subtitle: 'Permit acquisition and management',
-      description: 'We handle all administrative procedures and permits for your signage project.',
+      title: t('services.permit.title'),
+      subtitle: t('services.permit.subtitle'),
+      description: t('services.permit.description'),
       details: [],
       image: '/gestion.png',
       icon: (
@@ -45,9 +47,9 @@ const ServicesOverview = () => {
     },
     // 2. Design
     {
-      title: 'Design',
-      subtitle: 'Custom creative design',
-      description: 'Creation of concepts and mockups for signage, adapted to your brand identity.',
+      title: t('services.design.title'),
+      subtitle: t('services.design.subtitle'),
+      description: t('services.design.description'),
       details: [],
       image: '/CONCEPTION.png',
       icon: (
@@ -58,14 +60,10 @@ const ServicesOverview = () => {
     },
     // 3. Manufacturing
     {
-      title: 'Manufacturing',
-      subtitle: 'Precision-engineered solutions',
-      description: 'State-of-the-art manufacturing workshop in Montreal, producing high-end commercial signage.',
-      details: [
-        "Lettres boîtiers avec éclairage DEL",
-        "Enseignes monumentales et architecturales",
-        "Fabrication et finition sur mesure"
-      ],
+      title: t('services.manufacturing.title'),
+      subtitle: t('services.manufacturing.subtitle'),
+      description: t('services.manufacturing.description'),
+      details: t.raw('services.manufacturing.details'),
       image: "/fabrication.png",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,14 +73,10 @@ const ServicesOverview = () => {
     },
     // 4. Installation & After-Sales Service
     {
-      title: 'Installation & After-Sales Service',
-      subtitle: 'Implementation and support',
-      description: 'Professional installation and ongoing maintenance to ensure the durability and performance of your signage.',
-      details: [
-        "Installation sécurisée et conforme",
-        "Support et maintenance 7/7",
-        "Gestion de l’entretien et des réparations"
-      ],
+      title: t('services.installation.title'),
+      subtitle: t('services.installation.subtitle'),
+      description: t('services.installation.description'),
+      details: t.raw('services.installation.details'),
       image: "/installation.jpg",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,21 +101,17 @@ const ServicesOverview = () => {
         <div className="text-center mb-12 sm:mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full mb-6 sm:mb-8">
             <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
-            Notre expertise
+            {t('services.sectionTitle')}
           </div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1] mb-6">
-            Solutions
-            <br />
-            <span className="font-semibold">{"d'enseignes"}</span>
-            <br />
-            <span className="font-semibold" style={{color: '#32B8F1'}}>complètes</span>
+            {t('services.title')}
           </h2>
           
           <div className="w-16 h-1 mx-auto mb-6 sm:mb-8" style={{backgroundColor: '#32B8F1'}}></div>
           
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-            {"De la conception à la réalisation, nous offrons des solutions d'enseignes complètes qui renforcent votre image de marque et stimulent le succès de votre entreprise à Montréal."}
+            {t('services.sectionSubtitle')}
           </p>
         </div>
 
@@ -190,7 +180,7 @@ const ServicesOverview = () => {
                     onMouseEnter={(e) => e.currentTarget.style.color = '#32B8F1'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#1f2937'}
                   >
-                    En savoir plus sur ce service
+                    {t('services.viewDetails')}
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -243,7 +233,7 @@ const ServicesOverview = () => {
                   <span style={{color: '#32B8F1'}}>votre entreprise?</span>
                 </h3>
                 <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                  {"Partenaire avec les experts en enseignes de Montréal. Obtenez une consultation complète et une proposition de projet détaillée adaptée à vos besoins d'entreprise."}
+                  {t('services.partnerDescription')}
                 </p>
               </div>
 
@@ -251,15 +241,15 @@ const ServicesOverview = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2" style={{color: '#32B8F1'}}>1500+</div>
-                  <div className="text-gray-400 text-sm uppercase tracking-wide">Projets terminés</div>
+                  <div className="text-gray-400 text-sm uppercase tracking-wide">{t('services.completedProjects')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2" style={{color: '#32B8F1'}}>30+</div>
-                                      <div className="text-gray-400 text-sm uppercase tracking-wide">{"Années d'expérience"}</div>
+                  <div className="text-gray-400 text-sm uppercase tracking-wide">{t('services.yearsOfExperience')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2" style={{color: '#32B8F1'}}>7/7</div>
-                  <div className="text-gray-400 text-sm uppercase tracking-wide">Support disponible</div>
+                  <div className="text-gray-400 text-sm uppercase tracking-wide">{t('services.supportAvailable')}</div>
                 </div>
               </div>
 
@@ -278,7 +268,7 @@ const ServicesOverview = () => {
                   href="/achievements"
                   className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
                 >
-                  Voir notre travail
+                  {t('achievements.title')}
                 </Link>
               </div>
             </div>
@@ -300,4 +290,4 @@ const ServicesOverview = () => {
   )
 }
 
-export default ServicesOverview 
+export default ServicesOverview

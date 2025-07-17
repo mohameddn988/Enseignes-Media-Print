@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ContactModal from '@/components/common/ContactModal';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { 
   Pen, 
   Settings, 
@@ -19,85 +20,31 @@ const ServicesPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [showContactModal, setShowContactModal] = useState(false);
+  const t = useTranslations();
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const services = [
-    {
-      id: 1,
-      title: "CONCEPTION & DESIGN",
-      subtitle: "Où la vision devient réalité",
-      icon: Pen,
-      description: "Transformez vos idées en concepts visuels percutants grâce à notre équipe de design experte. De la consultation initiale à la validation finale des maquettes.",
-      features: [
-        "Création graphique et logo sur mesure",
-        "Visualisation 3D et maquettes",
-        "Plans techniques et spécifications",
-        "Sélection des couleurs et matériaux"
-      ],
-      image: "/CONCEPTION.png",
-      category: "Solutions créatives",
-      color: "bg-blue-500",
-      lightColor: "bg-blue-50",
-      borderColor: "border-blue-200"
-    },
-    {
-      id: 2,
-      title: "FABRICATION",
-      subtitle: "Précision et excellence",
-      icon: Settings,
-      description: "Atelier de fabrication à la fine pointe avec technologie de pointe et artisans qualifiés pour des enseignes de qualité supérieure.",
-      features: [
-        "Découpe CNC et laser",
-        "Soudure et assemblage professionnels",
-        "Intégration et câblage DEL",
-        "Contrôle qualité rigoureux"
-      ],
-      image: "/fabrication.png",
-      category: "Excellence de production",
-      color: "bg-green-500",
-      lightColor: "bg-green-50",
-      borderColor: "border-green-200"
-    },
-    {
-      id: 3,
-      title: "RÉPARATION & ENTRETIEN",
-      subtitle: "Des enseignes toujours éclatantes",
-      icon: Wrench,
-      description: "Services complets de réparation pour garder vos enseignes impeccables et fonctionnelles, y compris la conversion DEL.",
-      features: [
-        "Conversion DEL depuis fluorescent",
-        "Dépannage et réparation électrique",
-        "Services d'urgence disponible 7/7",
-        "Programmes d'entretien préventif"
-      ],
-      image: "/installation.jpg",
-      category: "Service et assistance",
-      color: "bg-orange-500",
-      lightColor: "bg-orange-50",
-      borderColor: "border-orange-200"
-    },
-    {
-      id: 4,
-      title: "GESTION DE PERMIS",
-      subtitle: "Conformité sans tracas",
-      icon: FileCheck,
-      description: "Gestion complète des permis et conformité municipale. Nous naviguons pour vous dans la réglementation complexe.",
-      features: [
-        "Demandes de permis municipaux",
-        "Vérification de conformité de zonage",
-        "Respect du code du bâtiment",
-        "Présentation professionnelle"
-      ],
-      image: "/gestion.png",
-      category: "Conformité légale",
-      color: "bg-purple-500",
-      lightColor: "bg-purple-50",
-      borderColor: "border-purple-200"
-    }
+  // Retrieve services from translations and add UI properties
+  const servicesData = t.raw('services.serviceItems') as any[];
+  const icons = [Pen, Settings, Wrench, FileCheck];
+  const colors = [
+    { color: "bg-blue-500", lightColor: "bg-blue-50", borderColor: "border-blue-200" },
+    { color: "bg-green-500", lightColor: "bg-green-50", borderColor: "border-green-200" },
+    { color: "bg-orange-500", lightColor: "bg-orange-50", borderColor: "border-orange-200" },
+    { color: "bg-purple-500", lightColor: "bg-purple-50", borderColor: "border-purple-200" }
   ];
+  const images = ["/CONCEPTION.png", "/fabrication.png", "/installation.jpg", "/gestion.png"];
+  
+  const services = servicesData.map((service: any, index: number) => ({
+    ...service,
+    icon: icons[index],
+    image: images[index],
+    color: colors[index].color,
+    lightColor: colors[index].lightColor,
+    borderColor: colors[index].borderColor
+  }));
 
   return (
     <>
@@ -115,8 +62,7 @@ const ServicesPage = () => {
           <div className="text-center">
             {/* Main Title - Hidden on mobile, visible on desktop */}
             <h1 className="hidden sm:block text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6 sm:mb-8">
-              Valorisez votre marque avec le<br />
-              <span className="text-[#32B8F1]">{"leader de l'enseigne à Montréal"}</span>
+              {t('services.page.heroTitle')}
             </h1>
 
             {/* CTA Button */}
@@ -125,9 +71,9 @@ const ServicesPage = () => {
                 onClick={() => setShowContactModal(true)}
                 className="inline-flex items-center space-x-2 text-sm sm:text-base font-medium transition-all duration-300 rounded-lg
                   sm:bg-[#FC32A2] sm:text-white sm:px-5 sm:py-2.5 sm:hover:bg-[#e91e63]
-                  bg-white/90 text-gray-900 px-4 py-2 hover:bg-white sm:hover:bg-[#e91e63]"
+                  bg-white/90 text-gray-900 px-4 py-2 hover:bg-white"
               >
-                <span>Demander un devis gratuit</span>
+                <span>{t('services.page.requestQuote')}</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
@@ -159,26 +105,26 @@ const ServicesPage = () => {
               <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5">30+</div>
                 <div className="text-gray-400 text-xs sm:text-sm">
-                  <span className="inline sm:hidden">Ans exp.</span>
-                  <span className="hidden sm:inline">{"Années d'expérience"}</span>
+                  <span className="inline sm:hidden">{t('services.page.stats.yearsExperienceShort')}</span>
+                  <span className="hidden sm:inline">{t('services.page.stats.yearsExperience')}</span>
                 </div>
               </div>
               <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5">1500+</div>
                 <div className="text-gray-400 text-xs sm:text-sm">
-                  <span className="inline sm:hidden">Projets</span>
-                  <span className="hidden sm:inline">Projets réalisés</span>
+                  <span className="inline sm:hidden">{t('services.page.stats.projectsCompletedShort')}</span>
+                  <span className="hidden sm:inline">{t('services.page.stats.projectsCompleted')}</span>
                 </div>
               </div>
               <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5">7/7</div>
-                <div className="text-gray-400 text-xs sm:text-sm">Support</div>
+                <div className="text-gray-400 text-xs sm:text-sm">{t('services.page.stats.support')}</div>
               </div>
               <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5">98%</div>
                 <div className="text-gray-400 text-xs sm:text-sm">
-                  <span className="inline sm:hidden">Satisf.</span>
-                  <span className="hidden sm:inline">Satisfaction</span>
+                  <span className="inline sm:hidden">{t('services.page.stats.satisfactionShort')}</span>
+                  <span className="hidden sm:inline">{t('services.page.stats.satisfaction')}</span>
                 </div>
               </div>
             </div>
@@ -193,10 +139,10 @@ const ServicesPage = () => {
           {/* Section Header */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 sm:mb-3 md:mb-4">
-              Notre offre de services
+              {t('services.page.offerTitle')}
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-2">
-              Des solutions globales pour répondre à tous vos besoins en signalisation
+              {t('services.page.offerSubtitle')}
             </p>
           </div>
 
@@ -232,7 +178,7 @@ const ServicesPage = () => {
 
                   {/* Features List */}
                   <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                    {service.features.map((feature, featureIndex) => (
+                    {service.features.map((feature: any, featureIndex: number) => (
                       <div key={featureIndex} className="flex items-start space-x-2 sm:space-x-3">
                         <div className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${service.lightColor}`}>
                           <CheckCircle className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 ${service.color.replace('bg-', 'text-')}`} />
@@ -260,7 +206,7 @@ const ServicesPage = () => {
                       service.color
                     } hover:opacity-90 hover:shadow-lg`}
                   >
-                    Demander un devis
+                    {t('services.page.getQuote')}
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                   </button>
                 </div>
@@ -282,11 +228,11 @@ const ServicesPage = () => {
                 </div>
                 <div>
                   <div className="text-xl sm:text-2xl font-bold text-gray-900">98%</div>
-                  <div className="text-sm sm:text-base text-gray-600">Satisfaction client</div>
+                  <div className="text-sm sm:text-base text-gray-600">{t('services.page.trust.customerSatisfaction')}</div>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
-                {"Notre engagement envers l'excellence se reflète dans notre taux de satisfaction client exceptionnel."}
+                {t('services.page.trust.satisfactionText')}
               </p>
             </div>
 
@@ -297,12 +243,12 @@ const ServicesPage = () => {
                   <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold text-gray-900">30+ ans</div>
-                  <div className="text-sm sm:text-base text-gray-600">{"D'expérience"}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">{t('services.page.trust.experienceTitle')}</div>
+                  <div className="text-sm sm:text-base text-gray-600">{t('services.page.trust.experienceSubtitle')}</div>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
-                {"Trois décennies d'expertise dans la conception et la fabrication d'enseignes de qualité."}
+                {t('services.page.trust.experienceText')}
               </p>
             </div>
 
@@ -313,12 +259,12 @@ const ServicesPage = () => {
                   <Users className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" />
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold text-gray-900">50+</div>
-                  <div className="text-sm sm:text-base text-gray-600">Experts dédiés</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">{t('services.page.trust.teamTitle')}</div>
+                  <div className="text-sm sm:text-base text-gray-600">{t('services.page.trust.teamSubtitle')}</div>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
-                Une équipe de professionnels qualifiés prête à donner vie à vos projets.
+                {t('services.page.trust.teamText')}
               </p>
             </div>
           </div>

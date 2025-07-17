@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { 
   Calendar,
   Award,
@@ -33,38 +34,17 @@ const AchievementsPage = () => {
   const [currentFilter, setCurrentFilter] = useState('Tous');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
+  const t = useTranslations();
 
   // Company milestones
-  const milestones = [
-    {
-      year: "1993",
-      title: "Fondation de l'entreprise",
-      description: "Débuts avec la volonté de transformer le paysage de l'enseigne à Montréal",
-      icon: Building,
+  const milestones = t.raw('achievements.page.timeline.milestones').map((milestone: any, index: number) => {
+    const icons = [Building, TrendingUp, Target, Crown];
+    return {
+      ...milestone,
+      icon: icons[index],
       color: "bg-blue-500"
-    },
-    {
-      year: "2000",
-      title: "Révolution numérique",
-      description: "Investissement dans la technologie d'impression numérique de pointe",
-      icon: TrendingUp,
-      color: "bg-blue-500"
-    },
-    {
-      year: "2010",
-      title: "1000+ Projets",
-      description: "Cap franchi de plus de 1000 projets d'enseignes réalisés",
-      icon: Target,
-      color: "bg-blue-500"
-    },
-    {
-      year: "2023",
-      title: "30 ans d&apos;excellence",
-      description: "Trois décennies d'innovation et de satisfaction client",
-      icon: Crown,
-      color: "bg-blue-500"
-    }
-  ];
+    };
+  });
 
   // Gallery images organized by category
   const galleryImages: GalleryImage[] = [
@@ -197,23 +177,24 @@ const AchievementsPage = () => {
 
   // Filter categories
   const filterCategories = [
-    'Tous',
-    'Auvent & Narquise',
-    'Boitier lumineuse', 
-    'Enseignes chanel',
-    'Enseignes en lettres decoupées',
-    'Enseignes push thrue',
-    'Enseignes pylone',
-    'Habillage vetrines  & mural',
-    'Neon flex'
+    t('achievements.page.portfolio.categories.all'),
+    t('achievements.page.portfolio.categories.awnings'),
+    t('achievements.page.portfolio.categories.lightbox'), 
+    t('achievements.page.portfolio.categories.channel'),
+    t('achievements.page.portfolio.categories.letters'),
+    t('achievements.page.portfolio.categories.pushThru'),
+    t('achievements.page.portfolio.categories.pylon'),
+    t('achievements.page.portfolio.categories.covering'),
+    t('achievements.page.portfolio.categories.neon')
   ];
 
-  const stats = [
-    { number: "30+", label: "Années d'expérience", icon: Calendar },
-    { number: '1500+', label: "Projets réalisés", icon: CheckCircle },
-    { number: "500+", label: "Clients satisfaits", icon: Users },
-    { number: "98%", label: "Taux de satisfaction", icon: Star }
-  ];
+  const stats = t.raw('achievements.page.stats').map((stat: any, index: number) => {
+    const icons = [Calendar, CheckCircle, Users, Star];
+    return {
+      ...stat,
+      icon: icons[index]
+    };
+  });
 
   // Navigation handlers pour le modal de projet
   const handlePrevProject = (e: React.MouseEvent) => {
@@ -281,12 +262,12 @@ const AchievementsPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Notre parcours</h2>
-            <p className="text-lg text-gray-600">Les étapes clés de nos 30 ans d&apos;histoire</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('achievements.page.timeline.title')}</h2>
+            <p className="text-lg text-gray-600">{t('achievements.page.timeline.subtitle')}</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
-            {milestones.map((milestone, index) => {
+            {milestones.map((milestone: any, index: number) => {
               const IconComponent = milestone.icon;
               return (
                 <div key={index} className="text-center max-w-xs">
@@ -308,10 +289,10 @@ const AchievementsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Notre portfolio
+              {t('achievements.page.portfolio.title')}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Découvrez nos réalisations récentes - des enseignes de qualité supérieure conçues et installées avec expertise
+              {t('achievements.page.portfolio.subtitle')}
             </p>
           </div>
 
@@ -370,7 +351,7 @@ const AchievementsPage = () => {
                 disabled={currentPage === 1}
                 className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
               >
-                Précédent
+                {t('achievements.page.portfolio.navigation.previous')}
               </button>
               
               <div className="flex space-x-1">
@@ -400,7 +381,7 @@ const AchievementsPage = () => {
                 disabled={currentPage === totalPages}
                 className="px-4 py-2 border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
               >
-                Suivant
+                {t('achievements.page.portfolio.navigation.next')}
               </button>
             </div>
           )}
@@ -411,34 +392,23 @@ const AchievementsPage = () => {
       <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Reconnaissance de l&apos;industrie</h2>
-            <p className="text-lg text-gray-300">Des prix qui valident notre engagement vers l&apos;excellence</p>
+            <h2 className="text-3xl font-bold text-white mb-4">{t('achievements.page.recognition.title')}</h2>
+            <p className="text-lg text-gray-300">{t('achievements.page.recognition.subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20">
-                <Award className="w-8 h-8 text-yellow-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Excellence en enseignes du Québec</h3>
-              <p className="text-gray-300 text-sm">Qualité exceptionnelle et innovation en enseignes commerciales</p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20">
-                <Star className="w-8 h-8 text-yellow-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Satisfaction client</h3>
-              <p className="text-gray-300 text-sm">98% de clients satisfaits et recommandations</p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20">
-                <Crown className="w-8 h-8 text-yellow-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">Leader du marché</h3>
-              <p className="text-gray-300 text-sm">30 ans d&apos;innovation et de leadership dans l&apos;industrie</p>
-            </div>
+            {t.raw('achievements.page.recognition.awards').map((award: any, index: number) => {
+              const icons = [Award, Star, Crown];
+              return (
+                <div key={index} className="text-center group">
+                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20">
+                    {React.createElement(icons[index], { className: "w-8 h-8 text-yellow-400" })}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{award.title}</h3>
+                  <p className="text-gray-300 text-sm">{award.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -447,10 +417,10 @@ const AchievementsPage = () => {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800" style={{background: 'linear-gradient(135deg, #32B8F1 0%, #1578a9 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Prêt à réaliser votre projet d&apos;enseigne ?
+            {t('achievements.page.cta.title')}
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd&apos;hui pour une consultation gratuite et découvrez comment nous pouvons transformer votre visibilité commerciale.
+            {t('achievements.page.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -458,14 +428,14 @@ const AchievementsPage = () => {
               onClick={() => setShowContactModal(true)}
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-300"
             >
-              Obtenir un devis gratuit
+              {t('achievements.page.cta.requestQuote')}
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
             <Link
               href="/services"
               className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
             >
-              Voir nos services
+              {t('achievements.page.cta.viewServices')}
             </Link>
           </div>
         </div>
@@ -513,7 +483,7 @@ const AchievementsPage = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{selectedProject.alt}</h3>
                   <div className="flex items-center text-gray-600 mb-2">
                     <MapPin className="w-4 h-4 mr-1" />
-                    <span className="mr-4">Montreal, QC</span>
+                    <span className="mr-4">{t('achievements.page.portfolio.projectDetails.location')}</span>
                     <Calendar className="w-4 h-4 mr-1" />
                     <span>2024</span>
                   </div>
@@ -523,17 +493,16 @@ const AchievementsPage = () => {
               <p className="text-gray-700 mb-6">Réalisation professionnelle d&apos;enseigne de qualité supérieure</p>
               
               <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">Caractéristiques</h4>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">{t('achievements.page.portfolio.projectDetails.features')}</h4>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
                     {selectedProject.category}
                   </span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
-                    Installation professionnelle
-                  </span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
-                    Qualité supérieure
-                  </span>
+                  {t.raw('achievements.page.portfolio.projectDetails.featuresList').map((feature: string, index: number) => (
+                    <span key={index} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
+                      {feature}
+                    </span>
+                  ))}
                 </div>
               </div>
               
@@ -545,7 +514,7 @@ const AchievementsPage = () => {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1578a9'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#32B8F1'}
                 >
-                  Demander un devis
+                  {t('achievements.page.portfolio.projectDetails.requestQuote')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -560,7 +529,7 @@ const AchievementsPage = () => {
           <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl transform transition-all">
             {/* Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900">Obtenir un devis gratuit</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{t('achievements.page.contactModal.title')}</h2>
               <button
                 onClick={() => setShowContactModal(false)}
                 className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
@@ -571,7 +540,7 @@ const AchievementsPage = () => {
                 </svg>
               </button>
             </div>
-            <p className="text-center text-sm text-gray-600 mt-4">Nous vous répondrons dans les 24&nbsp;heures.</p>
+            <p className="text-center text-sm text-gray-600 mt-4">{t('achievements.page.contactModal.subtitle')}</p>
             
             {/* Form Content */}
             <div className="p-6">
@@ -579,24 +548,24 @@ const AchievementsPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Nom complet *
+                      {t('achievements.page.contactModal.form.fullName')}
                     </label>
                     <input
                       type="text"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Votre nom"
+                      placeholder={t('achievements.page.contactModal.form.fullNamePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email *
+                      {t('achievements.page.contactModal.form.email')}
                     </label>
                     <input
                       type="email"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="votre@email.com"
+                      placeholder={t('achievements.page.contactModal.form.emailPlaceholder')}
                     />
                   </div>
                 </div>
@@ -604,54 +573,54 @@ const AchievementsPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Téléphone
+                      {t('achievements.page.contactModal.form.phone')}
                     </label>
                     <input
                       type="tel"
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="+1 (514) 000-0000"
+                      placeholder={t('achievements.page.contactModal.form.phonePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Entreprise
+                      {t('achievements.page.contactModal.form.company')}
                     </label>
                     <input
                       type="text"
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Nom de l'entreprise"
+                      placeholder={t('achievements.page.contactModal.form.companyPlaceholder')}
                     />
                   </div>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Service requis
+                    {t('achievements.page.contactModal.form.service')}
                   </label>
                   <select 
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    aria-label="Service requis"
+                    aria-label={t('achievements.page.contactModal.form.service')}
                   >
-                    <option value="">Sélectionnez un service</option>
-                    <option value="enseignes-led">Enseignes LED</option>
-                    <option value="enseignes-vitrine">Enseignes de vitrine</option>
-                    <option value="pylones">Pylônes</option>
-                    <option value="mural">Habillage  mural</option>
-                    <option value="bannieres">Bannières</option>
-                    <option value="installation">Installation</option>
-                    <option value="maintenance">Maintenance</option>
+                    <option value="">{t('achievements.page.contactModal.form.servicePlaceholder')}</option>
+                    <option value="enseignes-led">{t('achievements.page.contactModal.form.serviceOptions.ledSigns')}</option>
+                    <option value="enseignes-vitrine">{t('achievements.page.contactModal.form.serviceOptions.windowSigns')}</option>
+                    <option value="pylones">{t('achievements.page.contactModal.form.serviceOptions.pylons')}</option>
+                    <option value="mural">{t('achievements.page.contactModal.form.serviceOptions.wall')}</option>
+                    <option value="bannieres">{t('achievements.page.contactModal.form.serviceOptions.banners')}</option>
+                    <option value="installation">{t('achievements.page.contactModal.form.serviceOptions.installation')}</option>
+                    <option value="maintenance">{t('achievements.page.contactModal.form.serviceOptions.maintenance')}</option>
                   </select>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Détails du projet *
+                    {t('achievements.page.contactModal.form.projectDetails')}
                   </label>
                   <textarea
                     required
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    placeholder="Décrivez votre projet d'enseigne..."
+                    placeholder={t('achievements.page.contactModal.form.projectDetailsPlaceholder')}
                   />
                 </div>
                 
@@ -661,13 +630,13 @@ const AchievementsPage = () => {
                     onClick={() => setShowContactModal(false)}
                     className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                   >
-                    Annuler
+                    {t('achievements.page.contactModal.form.cancel')}
                   </button>
                   <button
                     type="submit"
                     className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    Envoyer la demande
+                    {t('achievements.page.contactModal.form.send')}
                   </button>
                 </div>
               </form>

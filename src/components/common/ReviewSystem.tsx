@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Star, Send, Link, MessageCircle, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface ReviewSystemProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ReviewSystemProps {
 }
 
 const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
+  const t = useTranslations();
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -71,12 +73,12 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-100">
           <h2 className="text-2xl font-bold text-gray-900">
-            {activeTab === 'review' ? 'Laisser un avis' : 'Envoyer lien d\'avis'}
+            {activeTab === 'review' ? t('review.modal.reviewTab') : t('review.modal.shareTab')}
           </h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-            aria-label="Fermer la fenêtre d'avis"
+            aria-label={t('common.close')}
           >
             <X className="w-5 h-5 text-gray-500" />
           </button>
@@ -93,7 +95,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
             }`}
           >
             <MessageCircle className="w-4 h-4 inline mr-2" />
-            Donner un avis
+            {t('review.modal.reviewTab')}
           </button>
           <button
             onClick={() => setActiveTab('sendLink')}
@@ -104,7 +106,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
             }`}
           >
             <Link className="w-4 h-4 inline mr-2" />
-            Envoyer lien
+            {t('review.modal.shareTab')}
           </button>
         </div>
 
@@ -117,12 +119,12 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {activeTab === 'review' ? 'Merci pour votre avis !' : 'Lien envoyé avec succès !'}
+                {activeTab === 'review' ? t('review.modal.thankYou') : t('review.modal.copiedMessage')}
               </h3>
               <p className="text-gray-600">
                 {activeTab === 'review' 
-                  ? 'Votre avis nous aide à améliorer nos services.'
-                  : 'Le client recevra un email avec le lien pour laisser un avis.'
+                  ? t('review.success.message')
+                  : t('review.success.shareSent')
                 }
               </p>
             </div>
@@ -133,7 +135,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                   {/* Star Rating */}
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-3">
-                      Votre évaluation
+                      {t('review.modal.ratingLabel')}
                     </label>
                     <div className="flex space-x-1">
                       {[1, 2, 3, 4, 5].map((star) => (
@@ -144,7 +146,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                           onMouseEnter={() => handleStarHover(star)}
                           onMouseLeave={() => setHoveredRating(0)}
                           className="p-1 transition-colors"
-                          aria-label={`Donner ${star} étoile${star > 1 ? 's' : ''}`}
+                          aria-label={t('review.modal.starAriaLabel', { count: star })}
                         >
                           <Star
                             className={`w-8 h-8 ${
@@ -158,11 +160,11 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                     </div>
                     {rating > 0 && (
                       <p className="text-sm text-gray-600 mt-2">
-                        {rating === 1 && 'Très insatisfait'}
-                        {rating === 2 && 'Insatisfait'}
-                        {rating === 3 && 'Neutre'}
-                        {rating === 4 && 'Satisfait'}
-                        {rating === 5 && 'Très satisfait'}
+                        {rating === 1 && t('review.rating.veryDissatisfied')}
+                        {rating === 2 && t('review.rating.dissatisfied')}
+                        {rating === 3 && t('review.rating.neutral')}
+                        {rating === 4 && t('review.rating.satisfied')}
+                        {rating === 5 && t('review.rating.verySatisfied')}
                       </p>
                     )}
                   </div>
@@ -170,7 +172,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                   {/* Comment */}
                   <div>
                     <label htmlFor="comment" className="block text-sm font-medium text-gray-700 mb-2">
-                      Votre commentaire (optionnel)
+                      {t('review.modal.commentLabel')}
                     </label>
                     <textarea
                       id="comment"
@@ -178,7 +180,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                       value={comment}
                       onChange={(e) => setComment(e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                      placeholder="Partagez votre expérience avec nos services..."
+                      placeholder={t('review.modal.commentPlaceholder')}
                     />
                   </div>
 
@@ -193,7 +195,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                     ) : (
                       <>
                         <Send className="w-4 h-4 mr-2" />
-                        Envoyer l'avis
+                        {t('review.modal.submitButton')}
                       </>
                     )}
                   </button>
@@ -204,7 +206,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                   <form onSubmit={handleSendLink} className="space-y-4">
                     <div>
                       <label htmlFor="clientEmail" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email du client
+                        {t('review.modal.emailLabel')}
                       </label>
                       <input
                         type="email"
@@ -212,7 +214,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                         value={clientEmail}
                         onChange={(e) => setClientEmail(e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="client@example.com"
+                        placeholder={t('review.modal.emailPlaceholder')}
                         required
                       />
                     </div>
@@ -227,7 +229,7 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
                       ) : (
                         <>
                           <Send className="w-4 h-4 mr-2" />
-                          Envoyer le lien
+                          {t('review.modal.sendLinkButton')}
                         </>
                       )}
                     </button>
@@ -235,12 +237,12 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ isOpen, onClose }) => {
 
                   {/* Preview Link */}
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Aperçu du lien :</h4>
+                    <h4 className="text-sm font-medium text-gray-700 mb-2">{t('review.modal.previewLinkTitle')}</h4>
                     <div className="bg-white border border-gray-200 rounded p-3 text-sm text-gray-600 break-all">
                       {generateReviewLink()}
                     </div>
                     <p className="text-xs text-gray-500 mt-2">
-                      Ce lien sera envoyé au client pour qu'il puisse laisser un avis facilement.
+                      {t('review.modal.previewLinkDescription')}
                     </p>
                   </div>
                 </div>

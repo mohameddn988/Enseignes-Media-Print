@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '@/components/ui/Card'
 import { useStagger } from '@/hooks/useGSAP'
+import { useTranslations } from 'next-intl'
 
 interface Testimonial {
   name: string
@@ -16,52 +17,10 @@ interface TestimonialsProps {
 }
 
 const Testimonials: React.FC<TestimonialsProps> = ({ className = '' }) => {
+  const t = useTranslations();
   const testimonialsRef = useStagger<HTMLDivElement>('.testimonial-card', 0.2)
 
-  const testimonials: Testimonial[] = [
-    {
-      name: "Sarah Johnson",
-      company: "Johnson's Bakery",
-      role: "Owner",
-      content: "The team at Signs & Graphics transformed our storefront completely. Our new LED sign increased foot traffic by 40% in just two months. Exceptional quality and service!",
-      rating: 5,
-    },
-    {
-      name: "Michael Chen",
-      company: "Tech Solutions Inc.",
-      role: "Marketing Director",
-      content: "From concept to installation, everything was handled professionally. Our new office signage perfectly reflects our brand identity. Highly recommend their design expertise.",
-      rating: 5,
-    },
-    {
-      name: "Lisa Rodriguez",
-      company: "Rodriguez Auto Repair",
-      role: "General Manager",
-      content: "After 3 years, our signs still look brand new. The quality of materials and craftsmanship is outstanding. Their maintenance service keeps everything perfect.",
-      rating: 5,
-    },
-    {
-      name: "David Thompson",
-      company: "Thompson Real Estate",
-      role: "Broker",
-      content: "Quick turnaround time and competitive pricing. They understood our vision immediately and delivered exactly what we wanted. Our property signs are now the best in town.",
-      rating: 5,
-    },
-    {
-      name: "Amanda Foster",
-      company: "Foster Medical Center",
-      role: "Administrator",
-      content: "Professional installation with minimal disruption to our operations. The directional signage has improved patient flow significantly. Great attention to detail.",
-      rating: 5,
-    },
-    {
-      name: "Robert Kim",
-      company: "Kim's Restaurant",
-      role: "Owner",
-      content: "The illuminated menu board increased our evening sales dramatically. Customer service was excellent throughout the entire process. Worth every penny invested.",
-      rating: 5,
-    }
-  ]
+  const testimonials: Testimonial[] = t.raw('testimonials.items');
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -82,14 +41,14 @@ const Testimonials: React.FC<TestimonialsProps> = ({ className = '' }) => {
         <div className="text-center mb-20">
           <div className="mb-4">
             <span className="inline-block px-4 py-2 bg-accent-100 text-accent-700 rounded-full text-sm font-medium">
-              ⭐ Client Reviews
+              ⭐ {t('testimonials.badge')}
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-secondary-900 mb-6">
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about our signage solutions and service quality.
+            {t('testimonials.description')}
           </p>
         </div>
 
@@ -140,22 +99,12 @@ const Testimonials: React.FC<TestimonialsProps> = ({ className = '' }) => {
         {/* Trust Indicators */}
         <div className="mt-20 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">500+</div>
-              <div className="text-secondary-600">Happy Clients</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">4.9/5</div>
-              <div className="text-secondary-600">Average Rating</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">98%</div>
-              <div className="text-secondary-600">Client Retention</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">5 Year</div>
-              <div className="text-secondary-600">Warranty</div>
-            </div>
+            {t.raw('testimonials.stats').map((stat: any, index: number) => (
+              <div key={index}>
+                <div className="text-3xl font-bold text-primary-600 mb-2">{stat.value}</div>
+                <div className="text-secondary-600">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

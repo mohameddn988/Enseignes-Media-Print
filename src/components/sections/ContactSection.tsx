@@ -1,9 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Phone, Mail, MapPin, Clock, Send, User, MessageSquare, Building, ArrowRight, CheckCircle } from 'lucide-react';
 
 const ContactSection = () => {
+  const t = useTranslations();
+  
+  const services = [
+    t('contact.form.fields.service.options.custom'),
+    t('contact.form.fields.service.options.printing'),
+    t('contact.form.fields.service.options.awnings'),
+    t('contact.form.fields.service.options.wall'),
+    t('contact.form.fields.service.options.installation'),
+    t('contact.form.fields.service.options.other')
+  ];
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,42 +27,33 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const services = [
-    'Enseignes et lettrage sur mesure',
-    'Impression numérique',
-    'Auvents et marquises',
-    'Habillage  mural',
-    "Services d'installation",
-    'Autre'
-  ];
-
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Appelez-nous',
+      title: t('contact.info.phone.title'),
       primary: '+1 (514) 691-2512',
-      secondary: 'Appel-moi pour toute question', // libellé ajouté
+      secondary: t('contact.info.phone.secondary'),
       href: 'tel:+15146912512'
     },
     {
       icon: Mail,
-      title: 'Envoyez-nous un e-mail',
+      title: t('contact.info.email.title'),
       primary: 'enseignesmediaprint@gmail.com',
-      secondary: 'Réponse rapide garantie',
+      secondary: t('contact.info.email.secondary'),
       href: 'mailto:enseignesmediaprint@gmail.com'
     },
   {
     icon: MapPin,
-    title: 'Venez nous voir',
-    primary: '8236 Rue Pascal-Gagnon Montréal',
+    title: t('contact.info.address.title'),
+    primary: t('contact.info.address.primary'),
     secondary: '',
     href: 'https://maps.google.com/maps?q=8236+Rue+Pascal-Gagnon,+Montréal'
   },
     {
       icon: Clock,
-      title: "Heures d'ouverture",
-      primary: 'Lun - Ven : 8h00 - 17h00', // horaires modifiés
-      secondary: 'Urgence : +1 (514) 691-2512',
+      title: t('contact.info.hours.title'),
+      primary: t('contact.info.hours.primary'),
+      secondary: t('contact.info.hours.secondary'),
       href: null
     }
   ];
@@ -94,13 +97,13 @@ const ContactSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4" style={{backgroundColor: '#dff2fd', color: '#1578a9'}}>
             <MessageSquare className="w-4 h-4 mr-2" />
-            Contactez-nous
+            {t('contact.badge')}
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Prêt à transformer votre entreprise ?
+            {t('contact.hero.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discutons de vos besoins en enseignes et créons ensemble quelque chose d&apos;exceptionnel. Obtenez votre consultation gratuite dès aujourd&apos;hui.
+            {t('contact.hero.description')}
           </p>
         </div>
 
@@ -109,16 +112,16 @@ const ContactSection = () => {
           <div className="lg:col-span-7">
             <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Obtenez votre devis gratuit
+                {t('contact.form.title')}
               </h3>
-              <p className="text-sm text-gray-600 mb-6">Nous vous répondrons dans les 24&nbsp;heures.</p>
+              <p className="text-sm text-gray-600 mb-6">{t('contact.form.subtitle')}</p>
               
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{color: '#32B8F1'}} />
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Merci !</h4>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">{t('contact.form.success.title')}</h4>
                   <p className="text-gray-600">
-                    Nous avons bien reçu votre message et nous vous répondrons sous 24 heures.
+                    {t('contact.form.success.message')}
                   </p>
                 </div>
               ) : (
@@ -126,7 +129,7 @@ const ContactSection = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nom complet *
+                        {t('contact.form.fields.name.label')}
                       </label>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -140,14 +143,14 @@ const ContactSection = () => {
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
                           style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                           onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                          placeholder="Votre nom complet"
+                          placeholder={t('contact.form.fields.name.placeholder')}
                         />
                       </div>
                     </div>
                     
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Adresse e-mail *
+                        {t('contact.form.fields.email.label')}
                       </label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -161,7 +164,7 @@ const ContactSection = () => {
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
                           style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                           onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                          placeholder="votre@email.com"
+                          placeholder={t('contact.form.fields.email.placeholder')}
                         />
                       </div>
                     </div>
@@ -170,7 +173,7 @@ const ContactSection = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nom de l&apos;entreprise
+                        {t('contact.form.fields.company.label')}
                       </label>
                       <div className="relative">
                         <Building className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -183,14 +186,14 @@ const ContactSection = () => {
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
                           style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                           onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                          placeholder="Nom de votre entreprise"
+                          placeholder={t('contact.form.fields.company.placeholder')}
                         />
                       </div>
                     </div>
                     
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Numéro de téléphone
+                        {t('contact.form.fields.phone.label')}
                       </label>
                       <div className="relative">
                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -203,7 +206,7 @@ const ContactSection = () => {
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
                           style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                           onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                          placeholder="+1 (514) 691-2512"
+                          placeholder={t('contact.form.fields.phone.placeholder')}
                         />
                       </div>
                     </div>
@@ -211,7 +214,7 @@ const ContactSection = () => {
 
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                      Service
+                      {t('contact.form.fields.service.label')}
                     </label>
                     <select
                       id="service"
@@ -222,7 +225,7 @@ const ContactSection = () => {
                       style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                       onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
                     >
-                      <option value="">Select a service</option>
+                      <option value="">{t('contact.form.fields.service.placeholder')}</option>
                       {services.map((service, index) => (
                         <option key={index} value={service}>
                           {service}
@@ -233,7 +236,7 @@ const ContactSection = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
+                      {t('contact.form.fields.message.label')}
                     </label>
                     <textarea
                       id="message"
@@ -245,7 +248,7 @@ const ContactSection = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 resize-none"
                       style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                       onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                      placeholder="Décrivez votre projet d'enseigne..."
+                      placeholder={t('contact.form.fields.message.placeholder')}
                     />
                   </div>
 
@@ -260,11 +263,11 @@ const ContactSection = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
-                        Sending...
+                        {t('contact.form.button.sending')}
                       </>
                     ) : (
                       <>
-                        Envoyer le message
+                        {t('contact.form.button.submit')}
                         <Send className="ml-2 w-5 h-5" />
                       </>
                     )}
@@ -346,7 +349,7 @@ const ContactSection = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e8bb8'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#32B8F1'}
                 >
-                  Get Directions
+                  {t('contact.info.address.directions')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
@@ -354,9 +357,9 @@ const ContactSection = () => {
 
             {/* Emergency Contact & Quick Communication */}
             <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 text-white">
-              <h4 className="font-bold text-lg mb-2">Communication rapide</h4>
+              <h4 className="font-bold text-lg mb-2">{t('contact.quickCommunication.title')}</h4>
               <p className="text-gray-300 text-sm mb-6">
-                Besoin d&apos;une réparation urgente ou d&apos;informations ? Contactez-nous directement via WhatsApp ou demandez plus d&apos;informations.
+                {t('contact.quickCommunication.description')}
               </p>
               
               {/* Quick Communication Buttons */}
@@ -383,14 +386,14 @@ const ContactSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}
                 >
-                  Pour plus d&apos;info
+                  {t('contact.quickCommunication.moreInfo')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
               
               {/* Emergency Line */}
               <div className="border-t border-gray-700 pt-4">
-                <p className="text-gray-300 text-sm mb-2">Services d&apos;urgence disponible 7/7</p>
+                <p className="text-gray-300 text-sm mb-2">{t('contact.emergency.available')}</p>
                 <a 
                   href="tel:+15146912512"
                   className="inline-flex items-center font-semibold transition-colors duration-300"
@@ -398,7 +401,7 @@ const ContactSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#1e8bb8'}
                   onMouseLeave={(e) => e.currentTarget.style.color = '#32B8F1'}
                 >
-                  Ligne d&apos;urgence
+                  {t('contact.emergency.line')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>

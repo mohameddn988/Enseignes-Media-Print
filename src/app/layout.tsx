@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Manrope } from "next/font/google";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -27,18 +29,22 @@ export const metadata: Metadata = {
   description: "Professional design, manufacture, installation and repair of signs and graphic supports. Quality signage solutions for your business.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className={`${inter.variable} ${poppins.variable} ${manrope.variable} font-body antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <ReviewButton />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <ReviewButton />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

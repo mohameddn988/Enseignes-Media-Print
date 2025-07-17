@@ -1,0 +1,695 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "achievements": "Our Achievements",
+    "contact": "Contact"
+  },
+  "header": {
+    "address": "8236 Pascal-Gagnon Street Montreal",
+    "schedule": "8am-6pm | Emergency 24/7",
+    "phone": "514 691-2512",
+    "whatsapp": "WhatsApp",
+    "moreInfo": "For more info"
+  },
+  "hero": {
+    "title": "Enhance your brand with Montreal's signage leader",
+    "subtitle": "Custom signs, expert installation and over 3 decades of recognized experience.",
+    "buttonText": "Request a free quote",
+    "tagline": "Custom signs for 30 years"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions for all your signage needs",
+    "sectionTitle": "Professional Services",
+    "sectionSubtitle": "Your trusted partner for all your signage projects",
+    "permit": {
+      "title": "Permit Management",
+      "subtitle": "Permit acquisition and management",
+      "description": "We handle all administrative procedures and permits for your signage project."
+    },
+    "design": {
+      "title": "Design",
+      "subtitle": "Custom creative design",
+      "description": "Creation of concepts and mockups for signage, adapted to your brand identity."
+    },
+    "manufacturing": {
+      "title": "Manufacturing",
+      "subtitle": "Precision-engineered solutions",
+      "description": "State-of-the-art manufacturing workshop in Montreal, producing high-end commercial signage.",
+      "details": [
+        "LED-lit box letters",
+        "Monumental and architectural signs",
+        "Custom fabrication and finishing"
+      ]
+    },
+    "installation": {
+      "title": "Installation & After-Sales Service",
+      "subtitle": "Implementation and support",
+      "description": "Professional installation and ongoing maintenance to ensure the durability and performance of your signage.",
+      "details": [
+        "Safe and compliant installation",
+        "24/7 support and maintenance",
+        "Maintenance and repair management"
+      ]
+    },
+    "viewDetails": "View Details",
+    "getQuote": "Get Quote",
+    "partnerDescription": "Partner with Montreal's signage experts. Get comprehensive consultation and detailed project proposal tailored to your business needs.",
+    "completedProjects": "Projects Completed",
+    "yearsOfExperience": "Years of Experience",
+    "supportAvailable": "Support Available",
+    "page": {
+      "heroTitle": "Enhance your brand with Montreal's signage leader",
+      "requestQuote": "Request a free quote",
+      "offerTitle": "Our Service Offerings",
+      "offerSubtitle": "Comprehensive solutions for all your signage needs",
+      "getQuote": "Request a quote",
+      "stats": {
+        "yearsExperience": "Years of Experience",
+        "yearsExperienceShort": "Yrs exp.",
+        "projectsCompleted": "Projects Completed",
+        "projectsCompletedShort": "Projects",
+        "support": "Support",
+        "satisfaction": "Satisfaction",
+        "satisfactionShort": "Satisf."
+      },
+      "trust": {
+        "customerSatisfaction": "Customer Satisfaction",
+        "satisfactionText": "Our commitment to excellence is reflected in our exceptional customer satisfaction rate.",
+        "experienceTitle": "30+ years",
+        "experienceSubtitle": "Of Experience",
+        "experienceText": "Three decades of expertise in designing and manufacturing quality signage.",
+        "teamTitle": "50+",
+        "teamSubtitle": "Dedicated Experts",
+        "teamText": "A team of qualified professionals ready to bring your projects to life."
+      }
+    },
+    "serviceItems": [
+      {
+        "id": 1,
+        "title": "DESIGN & CONCEPT",
+        "subtitle": "Where vision becomes reality",
+        "description": "Transform your ideas into striking visual concepts with our expert design team. From initial consultation to final mockup approval.",
+        "features": [
+          "Custom graphic design and logo creation",
+          "3D visualization and mockups",
+          "Technical plans and specifications",
+          "Color and material selection"
+        ],
+        "category": "Creative Solutions"
+      },
+      {
+        "id": 2,
+        "title": "MANUFACTURING",
+        "subtitle": "Precision and excellence",
+        "description": "State-of-the-art manufacturing facility with cutting-edge technology and skilled craftsmen for superior quality signage.",
+        "features": [
+          "CNC and laser cutting",
+          "Professional welding and assembly",
+          "LED integration and wiring",
+          "Rigorous quality control"
+        ],
+        "category": "Production Excellence"
+      },
+      {
+        "id": 3,
+        "title": "REPAIR & MAINTENANCE",
+        "subtitle": "Always brilliant signage",
+        "description": "Comprehensive repair services to keep your signage impeccable and functional, including LED conversion.",
+        "features": [
+          "LED conversion from fluorescent",
+          "Electrical troubleshooting and repair",
+          "Emergency services available 24/7",
+          "Preventive maintenance programs"
+        ],
+        "category": "Service and Support"
+      },
+      {
+        "id": 4,
+        "title": "PERMIT MANAGEMENT",
+        "subtitle": "Hassle-free compliance",
+        "description": "Complete permit management and municipal compliance. We navigate complex regulations for you.",
+        "features": [
+          "Municipal permit applications",
+          "Zoning compliance verification",
+          "Building code compliance",
+          "Professional presentation"
+        ],
+        "category": "Legal Compliance"
+      }
+    ]
+  },
+  "stats": {
+    "badge": "Our Journey",
+    "title": "Proven",
+    "titleEmphasis": "Excellence",
+    "description": "Three decades of delivering exceptional signage solutions in Montreal. Our numbers speak to our commitment to quality and client satisfaction.",
+    "partnerTitle": "Your Montreal Signage Partner",
+    "partnerDescription": "Since 2013, we've been the trusted choice for businesses in Montreal, providing innovative signage solutions that drive results and enhance brand visibility.",
+    "yearsExperience": "Years of Experience",
+    "yearsExperienceDesc": "Three decades of expertise in signage manufacturing and installation",
+    "projectsCompleted": "Projects Completed",
+    "projectsCompletedDesc": "Successful signage installations in Montreal and surrounding areas",
+    "happyClients": "Happy Clients",
+    "happyClientsDesc": "Clients satisfied with our services and projects",
+    "servicesOffered": "Services Offered",
+    "servicesOfferedDesc": "Complete services to meet all your signage needs",
+    "qualityGuarantee": "Quality Guarantee",
+    "achievements": [
+      {
+        "metric": "Industry Leader",
+        "detail": "30+ years of continuous innovation"
+      },
+      {
+        "metric": "Quality Assurance",
+        "detail": "98% client satisfaction rate"
+      },
+      {
+        "metric": "Rapid Response",
+        "detail": "Emergency services available 7/7"
+      },
+      {
+        "metric": "Proven Results",
+        "detail": "1500+ successful projects completed"
+      }
+    ],
+    "quote": "Excellence in signage isn't just about what we create—it's about the lasting partnerships we build and the success we help our clients achieve.",
+    "certifications": {
+      "licensed": "Licensed and Certified",
+      "insured": "Fully Insured",
+      "response": "Rapid Response",
+      "quality": "Quality Guarantee"
+    }
+  },
+  "achievements": {
+    "title": "Our Achievements",
+    "subtitle": "Discover some of our most remarkable projects",
+    "page": {
+      "timeline": {
+        "title": "Our Journey",
+        "subtitle": "Key milestones from our 30 years of history",
+        "milestones": [
+          {
+            "year": "1993",
+            "title": "Company Foundation",
+            "description": "Started with the vision to transform the signage landscape in Montreal"
+          },
+          {
+            "year": "2000",
+            "title": "Digital Revolution",
+            "description": "Investment in cutting-edge digital printing technology"
+          },
+          {
+            "year": "2010",
+            "title": "1000+ Projects",
+            "description": "Milestone reached with over 1000 signage projects completed"
+          },
+          {
+            "year": "2023",
+            "title": "30 Years of Excellence",
+            "description": "Three decades of innovation and customer satisfaction"
+          }
+        ]
+      },
+      "portfolio": {
+        "title": "Our Portfolio",
+        "subtitle": "Discover our recent achievements - superior quality signs designed and installed with expertise",
+        "categories": {
+          "all": "All",
+          "awnings": "Awnings & Canopies",
+          "lightbox": "Light Boxes",
+          "channel": "Channel Letters",
+          "letters": "Cut-out Letters",
+          "pushThru": "Push-Thru Signs",
+          "pylon": "Pylon Signs",
+          "covering": "Window & Wall Coverings",
+          "neon": "Neon Flex"
+        },
+        "navigation": {
+          "previous": "Previous",
+          "next": "Next"
+        },
+        "projectDetails": {
+          "location": "Montreal, QC",
+          "features": "Features",
+          "featuresList": [
+            "Professional Installation",
+            "Superior Quality"
+          ],
+          "requestQuote": "Request a Quote"
+        }
+      },
+      "recognition": {
+        "title": "Industry Recognition",
+        "subtitle": "Awards that validate our commitment to excellence",
+        "awards": [
+          {
+            "title": "Quebec Signage Excellence",
+            "description": "Exceptional quality and innovation in commercial signage"
+          },
+          {
+            "title": "Customer Satisfaction",
+            "description": "98% satisfied clients and recommendations"
+          },
+          {
+            "title": "Market Leader",
+            "description": "30 years of innovation and industry leadership"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to realize your signage project?",
+        "description": "Contact us today for a free consultation and discover how we can transform your commercial visibility.",
+        "requestQuote": "Get a Free Quote",
+        "viewServices": "View Our Services"
+      },
+      "contactModal": {
+        "title": "Get a Free Quote",
+        "subtitle": "We'll respond within 24 hours.",
+        "form": {
+          "fullName": "Full Name *",
+          "fullNamePlaceholder": "Your name",
+          "email": "Email *",
+          "emailPlaceholder": "your@email.com",
+          "phone": "Phone",
+          "phonePlaceholder": "+1 (514) 000-0000",
+          "company": "Company",
+          "companyPlaceholder": "Company name",
+          "service": "Required Service",
+          "servicePlaceholder": "Select a service",
+          "serviceOptions": {
+            "ledSigns": "LED Signs",
+            "windowSigns": "Window Signs",
+            "pylons": "Pylons",
+            "wall": "Wall Covering",
+            "banners": "Banners",
+            "installation": "Installation",
+            "maintenance": "Maintenance"
+          },
+          "projectDetails": "Project Details *",
+          "projectDetailsPlaceholder": "Describe your signage project...",
+          "cancel": "Cancel",
+          "send": "Send Request"
+        }
+      },
+      "stats": [
+        {
+          "number": "30+",
+          "label": "Years of Experience"
+        },
+        {
+          "number": "1500+",
+          "label": "Projects Completed"
+        },
+        {
+          "number": "500+",
+          "label": "Satisfied Clients"
+        },
+        {
+          "number": "98%",
+          "label": "Satisfaction Rate"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "hero": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Let's discuss your signage needs and create something exceptional together. Get your free consultation today."
+    },
+    "form": {
+      "title": "Get Your Free Quote",
+      "subtitle": "We'll respond within 24 hours.",
+      "getInTouch": "Get In Touch",
+      "whyChooseUs": "Why Choose Us?",
+      "privacyNote": "We respect your privacy and will never share your information.",
+      "benefits": [
+        "Free Consultation",
+        "5-Year Warranty",
+        "Licensed & Insured",
+        "Emergency 24/7"
+      ],
+      "services": [
+        "Custom Sign Design",
+        "LED Signs",
+        "Storefront Signs",
+        "Vehicle Graphics",
+        "Banners & Displays",
+        "Digital Signage",
+        "Installation Services",
+        "Maintenance & Repair"
+      ],
+      "budgetRanges": [
+        "Under $1,000",
+        "$1,000 - $5,000",
+        "$5,000 - $10,000",
+        "$10,000 - $25,000",
+        "$25,000+"
+      ],
+      "fields": {
+        "name": {
+          "label": "Full Name *",
+          "placeholder": "Your full name"
+        },
+        "email": {
+          "label": "Email Address *",
+          "placeholder": "your@email.com"
+        },
+        "company": {
+          "label": "Company Name",
+          "placeholder": "Your company name"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "+1 (514) 691-2512"
+        },
+        "service": {
+          "label": "Service Needed",
+          "placeholder": "Select a service",
+          "options": {
+            "custom": "Custom Signs and Lettering",
+            "printing": "Digital Printing",
+            "awnings": "Awnings and Canopies",
+            "wall": "Wall Covering",
+            "installation": "Installation Services",
+            "other": "Other"
+          }
+        },
+        "budget": {
+          "label": "Budget Range",
+          "placeholder": "Select budget range"
+        },
+        "message": {
+          "label": "Project Details *",
+          "placeholder": "Describe your signage project..."
+        }
+      },
+      "button": {
+        "submit": "🚀 Get Free Quote",
+        "sending": "Sending..."
+      },
+      "success": {
+        "title": "Thank You!",
+        "message": "We have received your message and will respond within 24 hours."
+      },
+      "error": {
+        "message": "Something went wrong. Please try again."
+      }
+    },
+    "info": {
+      "phone": {
+        "title": "Call Us",
+        "secondary": "Call me for any questions"
+      },
+      "email": {
+        "title": "Email Us",
+        "secondary": "Fast response guaranteed"
+      },
+      "address": {
+        "title": "Visit Us",
+        "primary": "8236 Rue Pascal-Gagnon Montreal",
+        "directions": "Get Directions"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "primary": "Mon - Fri: 8:00 AM - 5:00 PM",
+        "secondary": "Emergency: +1 (514) 691-2512"
+      }
+    },
+    "quickCommunication": {
+      "title": "Quick Communication",
+      "description": "Need urgent repair or information? Contact us directly via WhatsApp or request more information.",
+      "moreInfo": "More Info"
+    },
+    "emergency": {
+      "available": "Emergency services available 7/7",
+      "line": "Emergency Line"
+    }
+  },
+  "footer": {
+    "description": "Montreal's #1 signage company with over 3 decades of experience. We transform businesses through innovative design and quality craftsmanship.",
+    "certifications": {
+      "title": "Our Certifications",
+      "csa": "CSA Certified",
+      "csaDesc": "Certified Products"
+    },
+    "services": {
+      "title": "Our Services",
+      "items": [
+        "Custom Signs and Lettering",
+        "Digital Printing",
+        "Awnings and Canopies",
+        "Wall Covering",
+        "Exhibition Stands"
+      ]
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "about": "About",
+      "services": "Our Services",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "quote": "Get a Quote",
+      "careers": "Careers"
+    },
+    "rating": {
+      "text": "Based on 200+ customer reviews"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "phone": {
+        "title": "Call Us",
+        "subtitle": "Free consultation available"
+      },
+      "email": {
+        "title": "Email Us",
+        "subtitle": "Fast response guaranteed"
+      },
+      "address": {
+        "title": "Visit Us",
+        "subtitle": "Showroom & Workshop"
+      }
+    },
+    "social": {
+      "title": "Follow Us",
+      "facebook": "Follow us on Facebook",
+      "instagram": "Follow us on Instagram",
+      "linkedin": "Connect with us on LinkedIn",
+      "twitter": "Follow us on Twitter"
+    },
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getQuote": "Get Quote",
+    "viewProject": "View Project",
+    "readMore": "Read More",
+    "required": "*",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "close": "Close"
+  },
+  "about": {
+    "page": {
+      "hero": {
+        "badge": "About our company",
+        "title": "3 decades of experience",
+        "description": "Enseignes MEDIAPRINT has 30 years of expertise in the design, manufacturing, installation, and repair of signs and graphic displays. This expertise, combined with creativity and a commitment to staying at the forefront of technology, makes MEDIAPRINT a reference in the field.",
+        "imageAlt": "Enseignes MEDIAPRINT Workshop",
+        "awardTitle": "Industry Leader",
+        "awardSubtitle": "Since 2013"
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "Our mission is very clear: to provide optimized and fully tested products and solutions to our clients. At Enseignes MEDIAPRINT, we aim for nothing less than excellence, both in our customer relationships and in our products and services."
+      },
+      "values": [
+        {
+          "icon": "Target",
+          "title": "Excellence",
+          "description": "We aim for nothing less than excellence in our customer relationships and in our products and services."
+        },
+        {
+          "icon": "Lightbulb",
+          "title": "Innovation",
+          "description": "Always at the forefront of technology, we continuously research the latest innovations in our field."
+        },
+        {
+          "icon": "Heart",
+          "title": "Passion",
+          "description": "We are passionate about our craft and always seek the best ways to highlight your message."
+        },
+        {
+          "icon": "Users",
+          "title": "Partnership",
+          "description": "We build lasting relationships with our clients, understanding their unique needs and objectives."
+        }
+      ],
+      "passion": {
+        "badge": "Our passion",
+        "title": "Driven by innovation & excellence",
+        "description": "Our passion for innovation and excellence drives us to constantly push the boundaries of what's possible in the signage industry. We are proud of our ability to transform our clients' visions into tangible realities that captivate and inspire.",
+        "stats": [
+          { "label": "Innovative Projects", "value": "500+" },
+          { "label": "Technologies Mastered", "value": "20+" },
+          { "label": "Patents Filed", "value": "15+" },
+          { "label": "Innovation Awards", "value": "10+" }
+        ]
+      },
+      "timeline": {
+        "title": "Our Journey",
+        "description": "Discover the key moments that have shaped our company and allowed us to become a leader in the signage industry.",
+        "projects": "Projects",
+        "clients": "Clients"
+      },
+      "achievements": [
+        {
+          "id": 1,
+          "year": "2013",
+          "title": "Company Foundation",
+          "description": "Enseignes MEDIAPRINT was founded with the goal of revolutionizing the signage industry in Montreal.",
+          "image": "/truck.png",
+          "stats": { "projects": "50+", "clients": "25+" },
+          "icon": "Building"
+        },
+        {
+          "id": 2,
+          "year": "2015",
+          "title": "Service Expansion",
+          "description": "Large format printing and LED digital display technology",
+          "image": "/enseigne_channel/Ags-Papa-john.jpg",
+          "stats": { "projects": "200+", "clients": "100+" },
+          "icon": "Zap"
+        },
+        {
+          "id": 4,
+          "year": "2023",
+          "title": "Established Leadership",
+          "description": "Consolidation of our leadership position with over 1500 projects completed and a team of dedicated experts.",
+          "image": "/push_through_sign/enseignesAGS-Montreal.jpg",
+          "stats": { "projects": "1500+", "clients": "800+" },
+          "icon": "Shield"
+        }
+      ],
+      "stats": [
+        { "number": "30+", "label": "Years of Expertise", "icon": "Calendar" },
+        { "number": "1500+", "label": "Projects Completed", "icon": "CheckCircle" },
+        { "number": "500+", "label": "Satisfied Clients", "icon": "Users" },
+        { "number": "98%", "label": "Satisfaction Rate", "icon": "Star" }
+      ],
+      "cta": {
+        "title": "Ready to collaborate with Montreal's signage leader?",
+        "description": "Let's discuss how our 3 decades of experience can enhance your business presence.",
+        "consultation": "Get a free consultation",
+        "portfolio": "View our portfolio"
+      }
+    }
+  },
+  "review": {
+    "button": {
+      "label": "Customer Reviews",
+      "ariaLabel": "Leave a review or send a review link"
+    },
+    "modal": {
+      "title": "Share Your Experience",
+      "subtitle": "We value your feedback!",
+      "reviewTab": "Leave a Review",
+      "shareTab": "Share Review Link",
+      "ratingLabel": "Your Rating",
+      "starAriaLabel": "Give {count} star",
+      "commentLabel": "Your Comment (optional)",
+      "commentPlaceholder": "Share your experience with our services...",
+      "submitButton": "Submit Review",
+      "emailLabel": "Client Email",
+      "emailPlaceholder": "client@example.com",
+      "sendLinkButton": "Send Link",
+      "previewLinkTitle": "Link Preview:",
+      "previewLinkDescription": "This link will be sent to the client so they can easily leave a review.",
+      "thankYou": "Thank you for your review!",
+      "copiedMessage": "Link sent successfully!"
+    },
+    "rating": {
+      "veryDissatisfied": "Very Dissatisfied",
+      "dissatisfied": "Dissatisfied",
+      "neutral": "Neutral",
+      "satisfied": "Satisfied",
+      "verySatisfied": "Very Satisfied"
+    },
+    "success": {
+      "message": "Your feedback helps us improve our services.",
+      "shareSent": "The client will receive an email with the link to leave a review."
+    }
+  },
+  "testimonials": {
+    "badge": "Client Reviews",
+    "title": "What Our Clients Say",
+    "description": "Don't just take our word for it. Here's what our satisfied clients have to say about our signage solutions and service quality.",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "company": "Johnson's Bakery",
+        "role": "Owner",
+        "content": "The team at Signs & Graphics transformed our storefront completely. Our new LED sign increased foot traffic by 40% in just two months. Exceptional quality and service!",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "company": "Tech Solutions Inc.",
+        "role": "Marketing Director",
+        "content": "From concept to installation, everything was handled professionally. Our new office signage perfectly reflects our brand identity. Highly recommend their design expertise.",
+        "rating": 5
+      },
+      {
+        "name": "Lisa Rodriguez",
+        "company": "Rodriguez Auto Repair",
+        "role": "General Manager",
+        "content": "After 3 years, our signs still look brand new. The quality of materials and craftsmanship is outstanding. Their maintenance service keeps everything perfect.",
+        "rating": 5
+      },
+      {
+        "name": "David Thompson",
+        "company": "Thompson Real Estate",
+        "role": "Broker",
+        "content": "Quick turnaround time and competitive pricing. They understood our vision immediately and delivered exactly what we wanted. Our property signs are now the best in town.",
+        "rating": 5
+      },
+      {
+        "name": "Amanda Foster",
+        "company": "Foster Medical Center",
+        "role": "Administrator",
+        "content": "Professional installation with minimal disruption to our operations. The directional signage has improved patient flow significantly. Great attention to detail.",
+        "rating": 5
+      },
+      {
+        "name": "Robert Kim",
+        "company": "Kim's Restaurant",
+        "role": "Owner",
+        "content": "The illuminated menu board increased our evening sales dramatically. Customer service was excellent throughout the entire process. Worth every penny invested.",
+        "rating": 5
+      }
+    ],
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Happy Clients"
+      },
+      {
+        "value": "4.9/5",
+        "label": "Average Rating"
+      },
+      {
+        "value": "98%",
+        "label": "Client Retention"
+      },
+      {
+        "value": "5 Year",
+        "label": "Warranty"
+      }
+    ]
+  }
+}

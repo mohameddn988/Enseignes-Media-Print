@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { 
   Phone, 
   Mail, 
@@ -19,27 +20,28 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
+  const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Enseignes et lettrage sur mesure',
-    'Impression numérique',
-    'Auvents et marquises',
-    'Habillage  mural',
-    'Stands d\'exposition'
+    t('footer.services.items.0'),
+    t('footer.services.items.1'),
+    t('footer.services.items.2'),
+    t('footer.services.items.3'),
+    t('footer.services.items.4')
   ];
 
   const quickLinks = [
-    { name: 'À propos', href: '/about' },
-    { name: 'Nos services', href: '/services' },
-    { name: 'Portfolio', href: '/achievements' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Obtenir un devis', href: '/quote' },
-    { name: 'Carrières', href: '/careers' }
+    { name: t('footer.quickLinks.about'), href: '/about' },
+    { name: t('footer.quickLinks.services'), href: '/services' },
+    { name: t('footer.quickLinks.portfolio'), href: '/achievements' },
+    { name: t('footer.quickLinks.contact'), href: '/contact' },
+    { name: t('footer.quickLinks.quote'), href: '/quote' },
+    { name: t('footer.quickLinks.careers'), href: '/careers' }
   ];
 
   const certifications = [
-    { name: 'Certifié CSA', description: 'Produits certifiés' }
+    { name: t('footer.certifications.csa'), description: t('footer.certifications.csaDesc') }
   ];
 
   return (
@@ -58,13 +60,13 @@ const Footer = () => {
                 className="h-10 sm:h-12 w-auto"
               />
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                {"Entreprise d'enseignes numéro 1 à Montréal avec plus de 3 décennies d'expérience. Nous transformons les entreprises grâce à un design innovant et un savoir-faire de qualité."}
+                {t('footer.description')}
               </p>
             </div>
 
             {/* Trust Indicators */}
             <div className="space-y-4">
-              <h4 className="text-base sm:text-lg font-semibold text-white">Nos certifications</h4>
+              <h4 className="text-base sm:text-lg font-semibold text-white">{t('footer.certifications.title')}</h4>
               <div className="space-y-3">
                 {certifications.map((cert, index) => (
                   <div key={index} className="flex items-center space-x-3">
@@ -85,7 +87,7 @@ const Footer = () => {
 
           {/* Services - 2 columns */}
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-            <h4 className="text-base sm:text-lg font-semibold text-white">Nos services</h4>
+            <h4 className="text-base sm:text-lg font-semibold text-white">{t('footer.services.title')}</h4>
             <ul className="space-y-2 sm:space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
@@ -103,7 +105,7 @@ const Footer = () => {
 
           {/* Quick Links - 2 columns */}
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
-            <h4 className="text-base sm:text-lg font-semibold text-white">Liens rapides</h4>
+            <h4 className="text-base sm:text-lg font-semibold text-white">{t('footer.quickLinks.title')}</h4>
             <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -129,14 +131,14 @@ const Footer = () => {
                 <span className="text-sm sm:text-base font-semibold">4.9/5</span>
               </div>
               <div className="text-xs sm:text-sm text-gray-300">
-                Basé sur plus de 200 avis clients
+                {t('footer.rating.text')}
               </div>
             </div>
           </div>
 
           {/* Contact Info - 4 columns */}
           <div className="lg:col-span-4 space-y-4 sm:space-y-6">
-            <h4 className="text-base sm:text-lg font-semibold text-white">Contactez-nous</h4>
+            <h4 className="text-base sm:text-lg font-semibold text-white">{t('footer.contact.title')}</h4>
             
             <div className="space-y-4">
               {/* Phone */}
@@ -145,14 +147,14 @@ const Footer = () => {
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-medium text-white">Appelez-nous</div>
+                  <div className="text-sm sm:text-base font-medium text-white">{t('footer.contact.phone.title')}</div>
                   <Link 
                     href="tel:+15146912512"
                     className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors duration-300"
                   >
                     +1 (514) 691-2512
                   </Link>
-                  <div className="text-xs sm:text-sm text-gray-400">Consultation gratuite disponible</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('footer.contact.phone.subtitle')}</div>
                 </div>
               </div>
 
@@ -162,14 +164,14 @@ const Footer = () => {
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-medium text-white">Envoyez-nous un e-mail</div>
+                  <div className="text-sm sm:text-base font-medium text-white">{t('footer.contact.email.title')}</div>
                   <Link 
                     href="mailto:enseignesmediaprint@gmail.com"
                     className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors duration-300"
                   >
                     enseignesmediaprint@gmail.com
                   </Link>
-                  <div className="text-xs sm:text-sm text-gray-400">Réponse rapide garantie</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('footer.contact.email.subtitle')}</div>
                 </div>
               </div>
 
@@ -179,39 +181,44 @@ const Footer = () => {
                   <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-medium text-white">Venez nous voir</div>
+                  <div className="text-sm sm:text-base font-medium text-white">{t('footer.contact.address.title')}</div>
                   <div className="text-sm sm:text-base text-gray-300">
                     8236 Rue Pascal-Gagnon<br />
                     Montréal, QC
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-400">{"Salle d'exposition & Atelier"}</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{t('footer.contact.address.subtitle')}</div>
                 </div>
               </div>
             </div>
 
             {/* Social Media Links */}
             <div className="pt-4 sm:pt-6">
+              <h5 className="text-sm font-medium text-white mb-3">{t('footer.social.title')}</h5>
               <div className="flex items-center space-x-4">
                 <a
                   href="#"
+                  aria-label={t('footer.social.facebook')}
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 transition-colors duration-300"
                 >
                   <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a
                   href="#"
+                  aria-label={t('footer.social.instagram')}
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 transition-colors duration-300"
                 >
                   <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a
                   href="#"
+                  aria-label={t('footer.social.linkedin')}
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 transition-colors duration-300"
                 >
                   <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a
                   href="#"
+                  aria-label={t('footer.social.twitter')}
                   className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-gray-600 transition-colors duration-300"
                 >
                   <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -225,14 +232,14 @@ const Footer = () => {
         <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <div className="text-xs sm:text-sm text-gray-400">
-              © {currentYear} Enseignes MEDIAPRINT. Tous droits réservés.
+              © {currentYear} Enseignes MEDIAPRINT. {t('footer.copyright')}
             </div>
             <div className="flex items-center space-x-4 sm:space-x-6">
               <Link href="/privacy" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-300">
-                Politique de confidentialité
+                {t('footer.privacy')}
               </Link>
               <Link href="/terms" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-300">
-                {"Conditions d'utilisation"}
+                {t('footer.terms')}
               </Link>
             </div>
           </div>

@@ -1,0 +1,702 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Nos services",
+    "achievements": "Nos réalisations",
+    "contact": "Contact"
+  },
+  "header": {
+    "address": "8236 Rue Pascal-Gagnon Montréal",
+    "schedule": "8h-18h | Urgence 7/7",
+    "phone": "514 691-2512",
+    "whatsapp": "WhatsApp",
+    "moreInfo": "Pour plus d'info"
+  },
+  "hero": {
+    "title": "Valorisez votre marque avec le leader de l'enseigne à Montréal",
+    "subtitle": "Enseignes sur mesure, installation experte et plus de 3 décennies d'expérience reconnue.",
+    "buttonText": "Demander un devis gratuit",
+    "tagline": "Enseignes sur mesure depuis 30 ans"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Des solutions complètes pour tous vos besoins en enseignes",
+    "sectionTitle": "Services professionnels",
+    "sectionSubtitle": "Votre partenaire de confiance pour tous vos projets d'enseignes",
+    "permit": {
+      "title": "Gestion des permis",
+      "subtitle": "Acquisition et gestion de permis",
+      "description": "Nous nous occupons de toutes les procédures administratives et permis pour votre projet d'enseigne."
+    },
+    "design": {
+      "title": "Conception",
+      "subtitle": "Design créatif sur mesure",
+      "description": "Création de concepts et maquettes d'enseignes, adaptés à votre identité de marque."
+    },
+    "manufacturing": {
+      "title": "Fabrication",
+      "subtitle": "Solutions d'ingénierie de précision",
+      "description": "Atelier de fabrication à la pointe de la technologie à Montréal, produisant des enseignes commerciales haut de gamme.",
+      "details": [
+        "Lettres boîtiers avec éclairage DEL",
+        "Enseignes monumentales et architecturales",
+        "Fabrication et finition sur mesure"
+      ]
+    },
+    "installation": {
+      "title": "Installation et Service Après-Vente",
+      "subtitle": "Mise en œuvre et support",
+      "description": "Installation professionnelle et maintenance continue pour assurer la durabilité et la performance de votre enseigne.",
+      "details": [
+        "Installation sécurisée et conforme",
+        "Support et maintenance 7/7",
+        "Gestion de l'entretien et des réparations"
+      ]
+    },
+    "viewDetails": "Voir les détails",
+    "getQuote": "Obtenir un devis",
+    "partnerDescription": "Partenaire avec les experts en enseignes de Montréal. Obtenez une consultation complète et une proposition de projet détaillée adaptée à vos besoins d'entreprise.",
+    "completedProjects": "Projets terminés",
+    "yearsOfExperience": "Années d'expérience",
+    "supportAvailable": "Support disponible",
+    "page": {
+      "heroTitle": "Valorisez votre marque avec le leader de l'enseigne à Montréal",
+      "requestQuote": "Demander un devis gratuit",
+      "offerTitle": "Notre offre de services",
+      "offerSubtitle": "Des solutions globales pour répondre à tous vos besoins en signalisation",
+      "getQuote": "Demander un devis",
+      "stats": {
+        "yearsExperience": "Années d'expérience",
+        "yearsExperienceShort": "Ans exp.",
+        "projectsCompleted": "Projets réalisés",
+        "projectsCompletedShort": "Projets",
+        "support": "Support",
+        "satisfaction": "Satisfaction",
+        "satisfactionShort": "Satisf."
+      },
+      "trust": {
+        "customerSatisfaction": "Satisfaction client",
+        "satisfactionText": "Notre engagement envers l'excellence se reflète dans notre taux de satisfaction client exceptionnel.",
+        "experienceTitle": "30+ ans",
+        "experienceSubtitle": "D'expérience",
+        "experienceText": "Trois décennies d'expertise dans la conception et la fabrication d'enseignes de qualité.",
+        "teamTitle": "50+",
+        "teamSubtitle": "Experts dédiés",
+        "teamText": "Une équipe de professionnels qualifiés prête à donner vie à vos projets."
+      }
+    },
+    "serviceItems": [
+      {
+        "id": 1,
+        "title": "CONCEPTION & DESIGN",
+        "subtitle": "Où la vision devient réalité",
+        "description": "Transformez vos idées en concepts visuels percutants grâce à notre équipe de design experte. De la consultation initiale à la validation finale des maquettes.",
+        "features": [
+          "Création graphique et logo sur mesure",
+          "Visualisation 3D et maquettes",
+          "Plans techniques et spécifications",
+          "Sélection des couleurs et matériaux"
+        ],
+        "category": "Solutions créatives"
+      },
+      {
+        "id": 2,
+        "title": "FABRICATION",
+        "subtitle": "Précision et excellence",
+        "description": "Atelier de fabrication à la fine pointe avec technologie de pointe et artisans qualifiés pour des enseignes de qualité supérieure.",
+        "features": [
+          "Découpe CNC et laser",
+          "Soudure et assemblage professionnels",
+          "Intégration et câblage DEL",
+          "Contrôle qualité rigoureux"
+        ],
+        "category": "Excellence de production"
+      },
+      {
+        "id": 3,
+        "title": "RÉPARATION & ENTRETIEN",
+        "subtitle": "Des enseignes toujours éclatantes",
+        "description": "Services complets de réparation pour garder vos enseignes impeccables et fonctionnelles, y compris la conversion DEL.",
+        "features": [
+          "Conversion DEL depuis fluorescent",
+          "Dépannage et réparation électrique",
+          "Services d'urgence disponible 24/7",
+          "Programmes d'entretien préventif"
+        ],
+        "category": "Service et assistance"
+      },
+      {
+        "id": 4,
+        "title": "GESTION DE PERMIS",
+        "subtitle": "Conformité sans tracas",
+        "description": "Gestion complète des permis et conformité municipale. Nous naviguons pour vous dans la réglementation complexe.",
+        "features": [
+          "Demandes de permis municipaux",
+          "Vérification de conformité de zonage",
+          "Respect du code du bâtiment",
+          "Présentation professionnelle"
+        ],
+        "category": "Conformité légale"
+      }
+    ]
+  },
+  "stats": {
+    "badge": "Notre parcours",
+    "title": "Excellence",
+    "titleEmphasis": "prouvée",
+    "description": "Trois décennies à fournir des solutions d'enseignes exceptionnelles à Montréal. Nos chiffres témoignent de notre engagement envers la qualité et la satisfaction client.",
+    "partnerTitle": "Votre partenaire d'enseignes à Montréal",
+    "partnerDescription": "Depuis 2013, nous avons été le choix fiable pour les entreprises à Montréal, fournissant des solutions d'enseignes innovantes qui conduisent à des résultats et renforcent la visibilité de la marque.",
+    "yearsExperience": "Années d'expérience",
+    "yearsExperienceDesc": "Trois décennies d'expertise en fabrication et installation d'enseignes",
+    "projectsCompleted": "Projets réalisés",
+    "projectsCompletedDesc": "Installations d'enseignes réussies à Montréal et dans les environs",
+    "happyClients": "Clients satisfaits",
+    "happyClientsDesc": "Clients satisfaits de nos services et projets",
+    "servicesOffered": "Services offerts",
+    "servicesOfferedDesc": "Services complets pour répondre à tous vos besoins d'enseignes",
+    "qualityGuarantee": "Garantie de qualité",
+    "achievements": [
+      {
+        "metric": "Leader de l'industrie",
+        "detail": "30+ années d'innovation continue"
+      },
+      {
+        "metric": "Assurance qualité",
+        "detail": "Taux de satisfaction client de 98%"
+      },
+      {
+        "metric": "Réponse rapide",
+        "detail": "Services d'urgence disponible 7/7"
+      },
+      {
+        "metric": "Résultats prouvés",
+        "detail": "1500+ projets réussis terminés"
+      }
+    ],
+    "quote": "Excellence en signage n'est pas seulement à propos de ce que nous créons—c'est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser.",
+    "certifications": {
+      "licensed": "Licencié et certifié",
+      "insured": "Assuré totalement",
+      "response": "Réponse rapide",
+      "quality": "Garantie de qualité"
+    }
+  },
+  "achievements": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez quelques-uns de nos projets les plus remarquables",
+    "page": {
+      "timeline": {
+        "title": "Notre parcours",
+        "subtitle": "Les étapes clés de nos 30 ans d'histoire",
+        "milestones": [
+          {
+            "year": "1993",
+            "title": "Fondation de l'entreprise",
+            "description": "Débuts avec la volonté de transformer le paysage de l'enseigne à Montréal"
+          },
+          {
+            "year": "2000",
+            "title": "Révolution numérique",
+            "description": "Investissement dans la technologie d'impression numérique de pointe"
+          },
+          {
+            "year": "2010",
+            "title": "1000+ Projets",
+            "description": "Cap franchi de plus de 1000 projets d'enseignes réalisés"
+          },
+          {
+            "year": "2023",
+            "title": "30 ans d'excellence",
+            "description": "Trois décennies d'innovation et de satisfaction client"
+          }
+        ]
+      },
+      "portfolio": {
+        "title": "Notre portfolio",
+        "subtitle": "Découvrez nos réalisations récentes - des enseignes de qualité supérieure conçues et installées avec expertise",
+        "categories": {
+          "all": "Tous",
+          "awnings": "Auvent & Narquise",
+          "lightbox": "Boitier lumineuse",
+          "channel": "Enseignes chanel",
+          "letters": "Enseignes en lettres decoupées",
+          "pushThru": "Enseignes push thrue",
+          "pylon": "Enseignes pylone",
+          "covering": "Habillage vetrines & mural",
+          "neon": "Neon flex"
+        },
+        "navigation": {
+          "previous": "Précédent",
+          "next": "Suivant"
+        },
+        "projectDetails": {
+          "location": "Montreal, QC",
+          "features": "Caractéristiques",
+          "featuresList": [
+            "Installation professionnelle",
+            "Qualité supérieure"
+          ],
+          "requestQuote": "Demander un devis"
+        }
+      },
+      "recognition": {
+        "title": "Reconnaissance de l'industrie",
+        "subtitle": "Des prix qui valident notre engagement vers l'excellence",
+        "awards": [
+          {
+            "title": "Excellence en enseignes du Québec",
+            "description": "Qualité exceptionnelle et innovation en enseignes commerciales"
+          },
+          {
+            "title": "Satisfaction client",
+            "description": "98% de clients satisfaits et recommandations"
+          },
+          {
+            "title": "Leader du marché",
+            "description": "30 ans d'innovation et de leadership dans l'industrie"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Prêt à réaliser votre projet d'enseigne ?",
+        "description": "Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nous pouvons transformer votre visibilité commerciale.",
+        "requestQuote": "Obtenir un devis gratuit",
+        "viewServices": "Voir nos services"
+      },
+      "contactModal": {
+        "title": "Obtenir un devis gratuit",
+        "subtitle": "Nous vous répondrons dans les 24 heures.",
+        "form": {
+          "fullName": "Nom complet *",
+          "fullNamePlaceholder": "Votre nom",
+          "email": "Email *",
+          "emailPlaceholder": "votre@email.com",
+          "phone": "Téléphone",
+          "phonePlaceholder": "+1 (514) 000-0000",
+          "company": "Entreprise",
+          "companyPlaceholder": "Nom de l'entreprise",
+          "service": "Service requis",
+          "servicePlaceholder": "Sélectionnez un service",
+          "serviceOptions": {
+            "ledSigns": "Enseignes LED",
+            "windowSigns": "Enseignes de vitrine",
+            "pylons": "Pylônes",
+            "wall": "Habillage mural",
+            "banners": "Bannières",
+            "installation": "Installation",
+            "maintenance": "Maintenance"
+          },
+          "projectDetails": "Détails du projet *",
+          "projectDetailsPlaceholder": "Décrivez votre projet d'enseigne...",
+          "cancel": "Annuler",
+          "send": "Envoyer la demande"
+        }
+      },
+      "stats": [
+        {
+          "number": "30+",
+          "label": "Années d'expérience"
+        },
+        {
+          "number": "1500+",
+          "label": "Projets réalisés"
+        },
+        {
+          "number": "500+",
+          "label": "Clients satisfaits"
+        },
+        {
+          "number": "98%",
+          "label": "Taux de satisfaction"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Contactez-nous",
+    "hero": {
+      "title": "Prêt à transformer votre entreprise ?",
+      "description": "Discutons de vos besoins en enseignes et créons ensemble quelque chose d'exceptionnel. Obtenez votre consultation gratuite dès aujourd'hui."
+    },
+    "form": {
+      "title": "Obtenez votre devis gratuit",
+      "subtitle": "Nous vous répondrons dans les 24 heures.",
+      "getInTouch": "Contactez-nous",
+      "whyChooseUs": "Pourquoi nous choisir ?",
+      "privacyNote": "Nous respectons votre vie privée et ne partagerons jamais vos informations.",
+      "benefits": [
+        "Consultation gratuite",
+        "Garantie de 5 ans",
+        "Licencié et assuré",
+        "Urgence 7/7"
+      ],
+      "services": [
+        "Conception d'enseignes sur mesure",
+        "Enseignes LED",
+        "Enseignes de devanture",
+        "Graphismes pour véhicules",
+        "Bannières et affichages",
+        "Signalisation numérique",
+        "Services d'installation",
+        "Maintenance et réparation"
+      ],
+      "budgetRanges": [
+        "Moins de 1 000 $",
+        "1 000 $ - 5 000 $",
+        "5 000 $ - 10 000 $",
+        "10 000 $ - 25 000 $",
+        "Plus de 25 000 $"
+      ],
+      "fields": {
+        "name": {
+          "label": "Nom complet *",
+          "placeholder": "Votre nom complet"
+        },
+        "email": {
+          "label": "Adresse e-mail *",
+          "placeholder": "votre@email.com"
+        },
+        "company": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Nom de votre entreprise"
+        },
+        "phone": {
+          "label": "Numéro de téléphone",
+          "placeholder": "+1 (514) 691-2512"
+        },
+        "service": {
+          "label": "Service requis",
+          "placeholder": "Sélectionnez un service",
+          "options": {
+            "custom": "Enseignes et lettrage sur mesure",
+            "printing": "Impression numérique",
+            "awnings": "Auvents et marquises",
+            "wall": "Habillage mural",
+            "installation": "Services d'installation",
+            "other": "Autre"
+          }
+        },
+        "budget": {
+          "label": "Gamme de budget",
+          "placeholder": "Sélectionnez une gamme de budget"
+        },
+        "message": {
+          "label": "Détails du projet *",
+          "placeholder": "Décrivez votre projet d'enseigne..."
+        }
+      },
+      "button": {
+        "submit": "🚀 Obtenir un devis gratuit",
+        "sending": "Envoi en cours..."
+      },
+      "success": {
+        "title": "Merci !",
+        "message": "Nous avons bien reçu votre message et nous vous répondrons sous 24 heures."
+      },
+      "error": {
+        "message": "Une erreur s'est produite. Veuillez réessayer."
+      }
+    },
+    "info": {
+      "phone": {
+        "title": "Appelez-nous",
+        "secondary": "Appel-moi pour toute question"
+      },
+      "email": {
+        "title": "Envoyez-nous un e-mail",
+        "secondary": "Réponse rapide garantie"
+      },
+      "address": {
+        "title": "Venez nous voir",
+        "primary": "8236 Rue Pascal-Gagnon Montréal",
+        "directions": "Obtenir l'itinéraire"
+      },
+      "hours": {
+        "title": "Heures d'ouverture",
+        "primary": "Lun - Ven : 8h00 - 17h00",
+        "secondary": "Urgence : +1 (514) 691-2512"
+      }
+    },
+    "quickCommunication": {
+      "title": "Communication rapide",
+      "description": "Besoin d'une réparation urgente ou d'informations ? Contactez-nous directement via WhatsApp ou demandez plus d'informations.",
+      "moreInfo": "Pour plus d'info"
+    },
+    "emergency": {
+      "available": "Services d'urgence disponible 7/7",
+      "line": "Ligne d'urgence"
+    }
+  },
+  "footer": {
+    "description": "Entreprise d'enseignes numéro 1 à Montréal avec plus de 3 décennies d'expérience. Nous transformons les entreprises grâce à un design innovant et un savoir-faire de qualité.",
+    "certifications": {
+      "title": "Nos certifications",
+      "csa": "Certifié CSA",
+      "csaDesc": "Produits certifiés"
+    },
+    "services": {
+      "title": "Nos services",
+      "items": [
+        "Enseignes et lettrage sur mesure",
+        "Impression numérique",
+        "Auvents et marquises",
+        "Habillage mural",
+        "Stands d'exposition"
+      ]
+    },
+    "quickLinks": {
+      "title": "Liens rapides",
+      "about": "À propos",
+      "services": "Nos services",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "quote": "Obtenir un devis",
+      "careers": "Carrières"
+    },
+    "rating": {
+      "text": "Basé sur plus de 200 avis clients"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "phone": {
+        "title": "Appelez-nous",
+        "subtitle": "Consultation gratuite disponible"
+      },
+      "email": {
+        "title": "Envoyez-nous un e-mail",
+        "subtitle": "Réponse rapide garantie"
+      },
+      "address": {
+        "title": "Venez nous voir",
+        "subtitle": "Salle d'exposition & Atelier"
+      }
+    },
+    "social": {
+      "title": "Suivez-nous",
+      "facebook": "Suivez-nous sur Facebook",
+      "instagram": "Suivez-nous sur Instagram",
+      "linkedin": "Connectez-vous avec nous sur LinkedIn",
+      "twitter": "Suivez-nous sur Twitter"
+    },
+    "copyright": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "getQuote": "Obtenir un devis",
+    "viewProject": "Voir le projet",
+    "readMore": "Lire la suite",
+    "required": "*",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "close": "Fermer"
+  },
+  "about": {
+    "page": {
+      "hero": {
+        "badge": "À propos de notre entreprise",
+        "title": "3 décennies d'expérience",
+        "description": "Enseignes MEDIAPRINT possède 30 ans d'expertise dans la conception, la fabrication, l'installation et la réparation d'enseignes et de supports graphiques. Cette expertise, alliée à la créativité et à la volonté d'être à la pointe de la technologie, fait de MEDIAPRINT une référence dans le domaine.",
+        "imageAlt": "Atelier Enseignes MEDIAPRINT",
+        "awardTitle": "Chef de file de l'industrie",
+        "awardSubtitle": "Depuis 2013"
+      },
+      "mission": {
+        "title": "Notre mission",
+        "description": "Notre mission est très claire : fournir des produits et solutions optimisés et entièrement testés à nos clients. Chez Enseignes MEDIAPRINT, nous visons rien de moins que l'excellence, tant dans nos relations clients que dans nos produits et services."
+      },
+      "values": [
+        {
+          "icon": "Target",
+          "title": "Excellence",
+          "description": "Nous visons rien de moins que l'excellence dans nos relations clients et dans nos produits et services."
+        },
+        {
+          "icon": "Lightbulb",
+          "title": "Innovation",
+          "description": "Toujours à la pointe de la technologie, nous recherchons continuellement les dernières innovations dans notre domaine."
+        },
+        {
+          "icon": "Heart",
+          "title": "Passion",
+          "description": "Nous sommes passionnés par notre métier et cherchons toujours les meilleures façons de mettre en valeur votre message."
+        },
+        {
+          "icon": "Users",
+          "title": "Partenariat",
+          "description": "Nous bâtissons des relations durables avec nos clients, en comprenant leurs besoins et objectifs uniques."
+        }
+      ],
+      "passion": {
+        "badge": "Notre passion",
+        "title": "Portés par l'innovation & l'excellence",
+        "description": "Notre passion pour l'innovation et l'excellence nous pousse à repousser constamment les limites de ce qui est possible dans l'industrie des enseignes. Nous sommes fiers de notre capacité à transformer les visions de nos clients en réalités tangibles qui captivent et inspirent.",
+        "stats": [
+          { "label": "Projets innovants", "value": "500+" },
+          { "label": "Technologies maîtrisées", "value": "20+" },
+          { "label": "Brevets déposés", "value": "15+" },
+          { "label": "Prix d'innovation", "value": "10+" }
+        ]
+      },
+      "timeline": {
+        "title": "Notre parcours",
+        "description": "Découvrez les moments clés qui ont façonné notre entreprise et nous ont permis de devenir un leader dans l'industrie des enseignes.",
+        "projects": "Projets",
+        "clients": "Clients"
+      },
+      "achievements": [
+        {
+          "id": 1,
+          "year": "2013",
+          "title": "Fondation de l'entreprise",
+          "description": "Enseignes MEDIAPRINT a été fondée avec la volonté de révolutionner l'industrie de l'enseigne à Montréal.",
+          "image": "/truck.png",
+          "stats": { "projects": "50+", "clients": "25+" },
+          "icon": "Building"
+        },
+        {
+          "id": 2,
+          "year": "2015",
+          "title": "Expansion des services",
+          "description": "impression grand format et Technologie d'affichage numérique LED",
+          "image": "/enseigne_channel/Ags-Papa-john.jpg",
+          "stats": { "projects": "200+", "clients": "100+" },
+          "icon": "Zap"
+        },
+        {
+          "id": 4,
+          "year": "2023",
+          "title": "Leadership établi",
+          "description": "Consolidation de notre position de leader avec plus de 1500 projets réalisés et une équipe d'experts dédiés.",
+          "image": "/push_through_sign/enseignesAGS-Montreal.jpg",
+          "stats": { "projects": "1500+", "clients": "800+" },
+          "icon": "Shield"
+        }
+      ],
+      "stats": [
+        { "number": "30+", "label": "Années d'expertise", "icon": "Calendar" },
+        { "number": "1500+", "label": "Projets réalisés", "icon": "CheckCircle" },
+        { "number": "500+", "label": "Clients satisfaits", "icon": "Users" },
+        { "number": "98%", "label": "Taux de satisfaction", "icon": "Star" }
+      ],
+      "cta": {
+        "title": "Prêt à collaborer avec le leader de l'enseigne à Montréal ?",
+        "description": "Discutons ensemble de la façon dont nos 3 décennies d'expérience peuvent valoriser la présence de votre entreprise.",
+        "consultation": "Obtenir une consultation gratuite",
+        "portfolio": "Voir notre portfolio"
+      }
+    }
+  },
+  "review": {
+    "button": {
+      "label": "Avis clients",
+      "ariaLabel": "Laisser un avis ou envoyer un lien d'avis"
+    },
+    "modal": {
+      "title": "Partagez votre expérience",
+      "subtitle": "Votre avis nous intéresse !",
+      "reviewTab": "Laisser un avis",
+      "shareTab": "Envoyer lien d'avis",
+      "ratingLabel": "Votre évaluation",
+      "starAriaLabel": "Donner {count} étoile",
+      "commentLabel": "Votre commentaire (optionnel)",
+      "commentPlaceholder": "Partagez votre expérience avec nos services...",
+      "submitButton": "Envoyer l'avis",
+      "emailLabel": "Email du client",
+      "emailPlaceholder": "client@example.com",
+      "sendLinkButton": "Envoyer le lien",
+      "previewLinkTitle": "Aperçu du lien :",
+      "previewLinkDescription": "Ce lien sera envoyé au client pour qu'il puisse laisser un avis facilement.",
+      "thankYou": "Merci pour votre avis !",
+      "copiedMessage": "Lien envoyé avec succès !"
+    },
+    "rating": {
+      "veryDissatisfied": "Très insatisfait",
+      "dissatisfied": "Insatisfait",
+      "neutral": "Neutre",
+      "satisfied": "Satisfait",
+      "verySatisfied": "Très satisfait"
+    },
+    "success": {
+      "message": "Votre avis nous aide à améliorer nos services.",
+      "shareSent": "Le client recevra un email avec le lien pour laisser un avis."
+    }
+  },
+  "testimonials": {
+    "badge": "Avis clients",
+    "title": "Ce que disent nos clients",
+    "subtitle": "Entreprises de confiance dans tout Montréal et au-delà. Découvrez pourquoi des centaines de clients choisissent Enseignes MEDIAPRINT pour leurs besoins en signalisation.",
+    "trustIndicators": {
+      "clients": "Clients satisfaits",
+      "rating": "Note moyenne",
+      "retention": "Fidélisation client",
+      "warranty": "Garantie"
+    },
+    "rating": "Note moyenne client",
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "company": "Boulangerie Johnson",
+        "role": "Propriétaire",
+        "content": "L'équipe d'Enseignes MEDIAPRINT a complètement transformé notre devanture. Notre nouvelle enseigne LED a augmenté le trafic piétonnier de 40% en seulement deux mois. Qualité et service exceptionnels !",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "company": "Tech Solutions Inc.",
+        "role": "Directeur Marketing",
+        "content": "Du concept à l'installation, tout a été géré professionnellement. Notre nouvelle signalisation de bureau reflète parfaitement l'identité de notre marque. Je recommande vivement leur expertise en conception.",
+        "rating": 5
+      },
+      {
+        "name": "Lisa Rodriguez",
+        "company": "Garage Rodriguez",
+        "role": "Directrice Générale",
+        "content": "Après 3 ans, nos enseignes sont toujours comme neuves. La qualité des matériaux et du savoir-faire est exceptionnelle. Leur service de maintenance maintient tout en parfait état.",
+        "rating": 5
+      },
+      {
+        "name": "David Thompson",
+        "company": "Immobilier Thompson",
+        "role": "Courtier",
+        "content": "Délai d'exécution rapide et prix compétitifs. Ils ont immédiatement compris notre vision et livré exactement ce que nous voulions. Nos enseignes immobilières sont maintenant les meilleures de la ville.",
+        "rating": 5
+      },
+      {
+        "name": "Amanda Foster",
+        "company": "Centre Médical Foster",
+        "role": "Administratrice",
+        "content": "Installation professionnelle avec un minimum de perturbations pour nos opérations. La signalisation directionnelle a considérablement amélioré le flux des patients. Grande attention aux détails.",
+        "rating": 5
+      },
+      {
+        "name": "Robert Kim",
+        "company": "Restaurant Kim",
+        "role": "Propriétaire",
+        "content": "Le menu lumineux a considérablement augmenté nos ventes en soirée. Le service client a été excellent tout au long du processus. Chaque centime investi en valait la peine.",
+        "rating": 5
+      }
+    ],
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Clients satisfaits"
+      },
+      {
+        "value": "4.9/5",
+        "label": "Note moyenne"
+      },
+      {
+        "value": "98%",
+        "label": "Fidélisation client"
+      },
+      {
+        "value": "5 ans",
+        "label": "Garantie"
+      }
+    ]
+  }
+}

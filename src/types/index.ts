@@ -113,6 +113,7 @@ export interface ButtonProps {
   disabled?: boolean
   loading?: boolean
   className?: string
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export interface CardProps {
@@ -121,6 +122,7 @@ export interface CardProps {
   padding?: 'sm' | 'md' | 'lg'
   shadow?: boolean
   hover?: boolean
+  ref?: React.RefObject<HTMLDivElement> | null
 }
 
 export interface ModalProps {

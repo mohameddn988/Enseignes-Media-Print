@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface Stat {
   number: number
@@ -14,13 +15,14 @@ const StatsSection = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [counters, setCounters] = useState([0, 0, 0, 0])
+  const t = useTranslations()
 
   const stats: Stat[] = [
     {
       number: 30,
       suffix: '+',
-      label: "Années d'expérience",
-      description: 'Trois décennies d’expertise en fabrication et installation d’enseignes',
+      label: t('stats.yearsExperience'),
+      description: t('stats.yearsExperienceDesc'),
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -30,8 +32,8 @@ const StatsSection = () => {
     {
       number: 1500,
       suffix: '+',
-      label: 'Projets réalisés',
-      description: 'Installations d’enseignes réussies à Montréal et dans les environs',
+      label: t('stats.projectsCompleted'),
+      description: t('stats.projectsCompletedDesc'),
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -41,8 +43,8 @@ const StatsSection = () => {
     {
       number: 500,
       suffix: '+',
-      label: 'Clients satisfaits',
-      description: 'Clients satisfaits de nos services et projets',
+      label: t('stats.happyClients'),
+      description: t('stats.happyClientsDesc'),
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a6 6 0 00-12 0v2h5" />
@@ -53,8 +55,8 @@ const StatsSection = () => {
     {
       number: 98,
       suffix: '%',
-      label: 'Taux de satisfaction',
-      description: 'Évaluations constamment élevées de nos clients commerciaux et détaillants',
+      label: t('stats.servicesOffered'),
+      description: t('stats.servicesOfferedDesc'),
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -130,19 +132,19 @@ const StatsSection = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full mb-8">
             <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
-            Notre parcours
+            {t('stats.badge')}
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1] mb-6">
-            Excellence
+            {t('stats.title')}
             <br />
-            <span className="font-semibold">prouvée</span>
+            <span className="font-semibold">{t('stats.titleEmphasis')}</span>
           </h2>
           
           <div className="w-16 h-1 mx-auto mb-8" style={{backgroundColor: '#32B8F1'}}></div>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Trois décennies à fournir des solutions d’enseignes exceptionnelles à Montréal. Nos chiffres témoignent de notre engagement envers la qualité et la satisfaction client.
+            {t('stats.description')}
           </p>
         </div>
 
@@ -197,21 +199,20 @@ const StatsSection = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-3xl font-semibold text-gray-900 mb-4">
-                  Votre partenaire d’enseignes à Montréal
+                  {t('stats.partnerTitle')}
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Depuis 2013, nous avons été le choix fiable pour les entreprises à Montréal, 
-                  fournissant des solutions d’enseignes innovantes qui conduisent à des résultats et renforcent la visibilité de la marque.
+                  {t('stats.partnerDescription')}
                 </p>
               </div>
               
               {/* Key achievements */}
               <div className="space-y-4">
                 {[
-                  { metric: "Leader de l'industrie", detail: "30+ années d'innovation continue" },
-                  { metric: "Assurance qualité", detail: "Taux de satisfaction client de 98%" },
-                  { metric: "Réponse rapide", detail: "Services d'urgence disponible 7/7" },
-                  { metric: "Résultats prouvés", detail: "1500+ projets réussis terminés" }
+                  { metric: t('stats.achievements.0.metric'), detail: t('stats.achievements.0.detail') },
+                  { metric: t('stats.achievements.1.metric'), detail: t('stats.achievements.1.detail') },
+                  { metric: t('stats.achievements.2.metric'), detail: t('stats.achievements.2.detail') },
+                  { metric: t('stats.achievements.3.metric'), detail: t('stats.achievements.3.detail') }
                 ].map((achievement, index) => (
                   <div key={index} className="flex items-start space-x-4">
                     <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#32B8F1'}}></div>
@@ -229,7 +230,7 @@ const StatsSection = () => {
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                 <div className="text-6xl mb-4 leading-none" style={{color: '#32B8F1'}}>&ldquo;</div>
                 <blockquote className="text-xl text-gray-700 font-medium leading-relaxed mb-6">
-                  {"Excellence en signage n'est pas seulement à propos de ce que nous créons—c'est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser."}
+                  {t('stats.quote')}
                 </blockquote>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
@@ -239,7 +240,7 @@ const StatsSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Enseignes MEDIAPRINT</div>
-                    <div className="text-gray-600 text-sm">Depuis 2013</div>
+                    <div className="text-gray-600 text-sm">Since 2013</div>
                   </div>
                 </div>
               </div>
@@ -258,25 +259,25 @@ const StatsSection = () => {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-sm font-medium">Licencié et certifié</span>
+              <span className="text-sm font-medium">{t('stats.certifications.licensed')}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-500">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <span className="text-sm font-medium">Assuré totalement</span>
+              <span className="text-sm font-medium">{t('stats.certifications.insured')}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-500">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              <span className="text-sm font-medium">Réponse rapide</span>
+              <span className="text-sm font-medium">{t('stats.certifications.response')}</span>
             </div>
             <div className="flex items-center space-x-3 text-gray-500">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
-              <span className="text-sm font-medium">Garantie de qualité</span>
+              <span className="text-sm font-medium">{t('stats.certifications.quality')}</span>
             </div>
           </div>
         </div>
@@ -285,4 +286,4 @@ const StatsSection = () => {
   )
 }
 
-export default StatsSection 
+export default StatsSection
