@@ -92,7 +92,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link 
                     href="/services"
-                    className="text-sm sm:text-base text-red-400 hover:text-red-300 transition-colors duration-300 flex items-center group"
+                    className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {service}
