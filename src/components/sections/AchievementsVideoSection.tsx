@@ -5,6 +5,7 @@ import { Award, Users, Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import ContactModal from '@/components/common/ContactModal';
+import { WavyBackground } from '@/components/ui/wavy-background';
 
 interface Testimonial {
   quote: string;
@@ -175,15 +176,20 @@ const AchievementsVideoSection = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">{t('achievements.video.ctaTitle')}</h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+          <WavyBackground 
+            className="rounded-2xl p-8 lg:p-12 text-white"
+            backgroundFill="#111827"
+            waveOpacity={0.3}
+            blur={15}
+          >
+            <h3 className="text-3xl font-bold mb-4 relative z-20">{t('achievements.video.ctaTitle')}</h3>
+            <p className="text-gray-200 mb-8 max-w-2xl mx-auto relative z-20">
               {t('achievements.video.ctaDescription')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-20">
               <button 
                 onClick={() => setShowContactModal(true)}
-                className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" 
+                className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 relative z-30" 
                 style={{backgroundColor: '#FC32A2'}} 
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e91e63')} 
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FC32A2')}
@@ -193,12 +199,12 @@ const AchievementsVideoSection = () => {
               </button>
               <Link
                 href="/achievements"
-                className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 relative z-30"
               >
                 {t('achievements.video.viewPortfolio')}
               </Link>
             </div>
-          </div>
+          </WavyBackground>
         </div>
       </div>
       

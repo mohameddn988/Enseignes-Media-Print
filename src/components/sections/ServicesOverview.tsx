@@ -88,7 +88,54 @@ const ServicesOverview = () => {
   ]
 
   return (
-    <section ref={sectionRef} className="py-32 bg-white relative">
+    <>
+      <style jsx>{`
+        @keyframes spotlight {
+          0%, 100% {
+            transform: translateX(-50%) scale(1) rotate(0deg);
+            opacity: 0.6;
+          }
+          25% {
+            transform: translateX(-80%) scale(1.4) rotate(90deg);
+            opacity: 0.9;
+          }
+          50% {
+            transform: translateX(-20%) scale(0.9) rotate(180deg);
+            opacity: 0.7;
+          }
+          75% {
+            transform: translateX(-60%) scale(1.2) rotate(270deg);
+            opacity: 0.8;
+          }
+        }
+        
+        @keyframes spotlight-secondary {
+          0%, 100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.5;
+          }
+          33% {
+            transform: scale(1.5) rotate(120deg);
+            opacity: 0.8;
+          }
+          66% {
+            transform: scale(0.8) rotate(240deg);
+            opacity: 0.6;
+          }
+        }
+        
+        @keyframes spotlight-tertiary {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translateY(-50px) scale(1.3);
+            opacity: 0.7;
+          }
+        }
+      `}</style>
+      <section ref={sectionRef} className="py-32 bg-white relative">
       {/* Subtle background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/30 to-white"></div>
       <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -219,12 +266,38 @@ const ServicesOverview = () => {
         {/* Bottom CTA Section */}
         <div className="mt-32">
           <div className="bg-gray-900 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden">
-            
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`
-            }}></div>
-            
+            {/* Animated Spotlight Effect */}
+            <div className="absolute inset-0 opacity-50">
+              <div 
+                className="absolute w-[500px] h-[500px] rounded-full blur-3xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(50, 184, 241, 0.8) 0%, rgba(252, 50, 162, 0.6) 30%, rgba(50, 184, 241, 0.4) 60%, transparent 80%)',
+                  top: '10%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  animation: 'spotlight 8s infinite ease-in-out'
+                }}
+              ></div>
+              <div 
+                className="absolute w-80 h-80 rounded-full blur-2xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(252, 50, 162, 0.9) 0%, rgba(50, 184, 241, 0.6) 40%, rgba(252, 50, 162, 0.3) 70%, transparent 85%)',
+                  bottom: '5%',
+                  right: '15%',
+                  animation: 'spotlight-secondary 6s infinite ease-in-out reverse'
+                }}
+              ></div>
+              <div 
+                className="absolute w-72 h-72 rounded-full blur-xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(50, 184, 241, 0.7) 0%, rgba(252, 50, 162, 0.5) 50%, transparent 75%)',
+                  top: '50%',
+                  left: '10%',
+                  animation: 'spotlight-tertiary 10s infinite ease-in-out'
+                }}
+              ></div>
+            </div>
+
             <div className="relative space-y-8">
               <div className="space-y-4">
                 <h3 className="text-4xl lg:text-5xl font-semibold text-white leading-tight">
@@ -257,7 +330,7 @@ const ServicesOverview = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => setShowContactModal(true)}
-                  className="text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  className="text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 relative z-10"
                   style={{backgroundColor: '#FC32A2'}}
                   onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#e91e63'}
                   onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FC32A2'}
@@ -266,14 +339,14 @@ const ServicesOverview = () => {
                 </button>
                 <Link
                   href="/achievements"
-                  className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+                  className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-all duration-300 relative z-10"
                 >
                   {t('achievements.title')}
                 </Link>
               </div>
             </div>
 
-            {/* Decorative Elements */}
+            {/* Enhanced Decorative Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl" style={{backgroundColor: 'rgba(50, 184, 241, 0.05)'}}></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
           </div>
@@ -286,7 +359,8 @@ const ServicesOverview = () => {
         onClose={() => setShowContactModal(false)}
       />
 
-    </section>
+      </section>
+    </>
   )
 }
 
