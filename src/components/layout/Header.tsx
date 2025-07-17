@@ -121,13 +121,11 @@ const Header = () => {
                   width={550}
                   height={190}
                   className={cn(
-                    "w-auto transition-all duration-300",
+                    "w-auto transition-all duration-300 group-hover:scale-105",
                     isScrolled ? "h-18 sm:h-22" : "h-22 sm:h-26"
                   )}
                   priority
                 />
-                {/* Subtle glow effect on hover */}
-                <div className="absolute inset-0 rounded-lg transition-all duration-300 group-hover:bg-blue-50"></div>
               </div>
             </Link>
 
