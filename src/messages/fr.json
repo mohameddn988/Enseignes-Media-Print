@@ -218,6 +218,19 @@
     "serviceItems": [
       {
         "id": 1,
+        "title": "GESTION DE PERMIS",
+        "subtitle": "Conformité sans tracas",
+        "description": "Gestion complète des permis et conformité municipale. Nous naviguons pour vous dans la réglementation complexe.",
+        "features": [
+          "Demandes de permis municipaux",
+          "Vérification de conformité de zonage",
+          "Respect du code du bâtiment",
+          "Présentation professionnelle"
+        ],
+        "category": "Conformité légale"
+      },
+      {
+        "id": 2,
         "title": "CONCEPTION & DESIGN",
         "subtitle": "Où la vision devient réalité",
         "description": "Transformez vos idées en concepts visuels percutants grâce à notre équipe de design experte. De la consultation initiale à la validation finale des maquettes.",
@@ -230,7 +243,7 @@
         "category": "Solutions créatives"
       },
       {
-        "id": 2,
+        "id": 3,
         "title": "FABRICATION",
         "subtitle": "Précision et excellence",
         "description": "Atelier de fabrication à la fine pointe avec technologie de pointe et artisans qualifiés pour des enseignes de qualité supérieure.",
@@ -243,7 +256,7 @@
         "category": "Excellence de production"
       },
       {
-        "id": 3,
+        "id": 4,
         "title": "RÉPARATION & ENTRETIEN",
         "subtitle": "Des enseignes toujours éclatantes",
         "description": "Services complets de réparation pour garder vos enseignes impeccables et fonctionnelles, y compris la conversion DEL.",
@@ -254,19 +267,6 @@
           "Programmes d'entretien préventif"
         ],
         "category": "Service et assistance"
-      },
-      {
-        "id": 4,
-        "title": "GESTION DE PERMIS",
-        "subtitle": "Conformité sans tracas",
-        "description": "Gestion complète des permis et conformité municipale. Nous naviguons pour vous dans la réglementation complexe.",
-        "features": [
-          "Demandes de permis municipaux",
-          "Vérification de conformité de zonage",
-          "Respect du code du bâtiment",
-          "Présentation professionnelle"
-        ],
-        "category": "Conformité légale"
       }
     ]
   },
