@@ -41,7 +41,7 @@ const StatsSection = () => {
       )
     },
     {
-      number: 500,
+      number: 1000,
       suffix: '+',
       label: t('stats.happyClients'),
       description: t('stats.happyClientsDesc'),

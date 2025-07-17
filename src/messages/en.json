@@ -218,6 +218,19 @@
     "serviceItems": [
       {
         "id": 1,
+        "title": "PERMIT MANAGEMENT",
+        "subtitle": "Hassle-free compliance",
+        "description": "Complete permit management and municipal compliance. We navigate complex regulations for you.",
+        "features": [
+          "Municipal permit applications",
+          "Zoning compliance verification",
+          "Building code compliance",
+          "Professional presentation"
+        ],
+        "category": "Legal Compliance"
+      },
+      {
+        "id": 2,
         "title": "DESIGN & CONCEPT",
         "subtitle": "Where vision becomes reality",
         "description": "Transform your ideas into striking visual concepts with our expert design team. From initial consultation to final mockup approval.",
@@ -230,7 +243,7 @@
         "category": "Creative Solutions"
       },
       {
-        "id": 2,
+        "id": 3,
         "title": "MANUFACTURING",
         "subtitle": "Precision and excellence",
         "description": "State-of-the-art manufacturing facility with cutting-edge technology and skilled craftsmen for superior quality signage.",
@@ -243,7 +256,7 @@
         "category": "Production Excellence"
       },
       {
-        "id": 3,
+        "id": 4,
         "title": "REPAIR & MAINTENANCE",
         "subtitle": "Always brilliant signage",
         "description": "Comprehensive repair services to keep your signage impeccable and functional, including LED conversion.",
@@ -254,19 +267,6 @@
           "Preventive maintenance programs"
         ],
         "category": "Service and Support"
-      },
-      {
-        "id": 4,
-        "title": "PERMIT MANAGEMENT",
-        "subtitle": "Hassle-free compliance",
-        "description": "Complete permit management and municipal compliance. We navigate complex regulations for you.",
-        "features": [
-          "Municipal permit applications",
-          "Zoning compliance verification",
-          "Building code compliance",
-          "Professional presentation"
-        ],
-        "category": "Legal Compliance"
       }
     ]
   },
