@@ -442,13 +442,12 @@
           "service": "Service requis",
           "servicePlaceholder": "Sélectionnez un service",
           "serviceOptions": {
-            "ledSigns": "Enseignes LED",
-            "windowSigns": "Enseignes de vitrine",
-            "pylons": "Pylônes",
+            "custom": "Enseignes sur mesure et lettrage",
+            "printing": "Impression numérique",
+            "awnings": "Auvents et marquises", 
             "wall": "Habillage mural",
-            "banners": "Bannières",
-            "installation": "Installation",
-            "maintenance": "Maintenance"
+            "installation": "Services d'installation",
+            "other": "Autre"
           },
           "projectDetails": "Détails du projet *",
           "projectDetailsPlaceholder": "Décrivez votre projet d'enseigne...",
@@ -513,11 +512,11 @@
       ],
       "fields": {
         "name": {
-          "label": "Nom complet *",
+          "label": "Nom complet",
           "placeholder": "Votre nom complet"
         },
         "email": {
-          "label": "Adresse e-mail *",
+          "label": "Adresse e-mail",
           "placeholder": "votre@email.com"
         },
         "company": {
@@ -545,21 +544,24 @@
           "placeholder": "Sélectionnez une gamme de budget"
         },
         "message": {
-          "label": "Détails du projet *",
+          "label": "Détails du projet",
           "placeholder": "Décrivez votre projet d'enseigne..."
         }
       },
       "button": {
-        "submit": "🚀 Obtenir un devis gratuit",
+        "submit": "Obtenir un devis gratuit",
         "sending": "Envoi en cours..."
       },
       "success": {
-        "title": "Merci !",
-        "message": "Nous avons bien reçu votre message et nous vous répondrons sous 24 heures."
+        "title": "Message envoyé avec succès !",
+        "message": "Merci de nous avoir contactés. Nous vous répondrons dans les 24 heures."
       },
       "error": {
-        "message": "Une erreur s'est produite. Veuillez réessayer."
-      }
+        "title": "Échec de l'envoi du message",
+        "message": "Veuillez réessayer ou nous contacter directement aux informations ci-dessous."
+      },
+      "immediateAssistance": "Besoin d'une assistance immédiate ?",
+      "quickResponse": "Réponse rapide • Consultation gratuite"
     },
     "info": {
       "phone": {
@@ -567,7 +569,7 @@
         "secondary": "Appel-moi pour toute question"
       },
       "email": {
-        "title": "Envoyez-nous un e-mail",
+        "title": "Écrivez-nous",
         "secondary": "Réponse rapide garantie"
       },
       "address": {
@@ -579,7 +581,11 @@
       "hours": {
         "title": "Heures d'ouverture",
         "primary": "Lun - Ven : 8h00 - 17h00",
-        "secondary": "Urgence : +1 (514) 691-2512"
+        "secondary": "Urgence : +1 (514) 691-2512",
+        "businessHours": "Heures d'affaires",
+        "schedule": "Lun - Ven : 8h00 - 17h00", 
+        "emergency": "Urgence",
+        "availability": "Disponible 24/7"
       }
     },
     "quickCommunication": {

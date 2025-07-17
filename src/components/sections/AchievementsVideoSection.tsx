@@ -26,7 +26,7 @@ const AchievementsVideoSection = () => {
     },
     {
       icon: Users,
-      number: "800+",
+      number: "500+",
       title: t('stats.happyClients'),
       description: t('stats.happyClientsDesc')
     },

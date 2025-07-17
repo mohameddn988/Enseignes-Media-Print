@@ -16,6 +16,64 @@ const ContactSection = () => {
     t('contact.form.fields.service.options.other')
   ];
 
+  // Validation functions
+  const validateName = (name: string): string => {
+    if (!name.trim()) return 'Name is required';
+    if (name.trim().length < 2) return 'Name must be at least 2 characters';
+    if (!/^[a-zA-ZÀ-ÿ\s'-]+$/.test(name)) return 'Name can only contain letters, spaces, hyphens, and apostrophes';
+    return '';
+  };
+
+  const validateEmail = (email: string): string => {
+    if (!email.trim()) return 'Email is required';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return 'Please enter a valid email address';
+    return '';
+  };
+
+  const validatePhone = (phone: string): string => {
+    if (!phone.trim()) return ''; // Phone is optional
+    // Remove all non-digits to check
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) return 'Phone number must be at least 10 digits';
+    if (cleanPhone.length > 15) return 'Phone number cannot exceed 15 digits';
+    return '';
+  };
+
+  const validateMessage = (message: string): string => {
+    if (!message.trim()) return 'Message is required';
+    if (message.trim().length < 10) return 'Message must be at least 10 characters';
+    if (message.trim().length > 1000) return 'Message cannot exceed 1000 characters';
+    return '';
+  };
+
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case 'name': return validateName(value);
+      case 'email': return validateEmail(value);
+      case 'phone': return validatePhone(value);
+      case 'message': return validateMessage(value);
+      default: return '';
+    }
+  };
+
+  const formatPhoneNumber = (phone: string): string => {
+    // Remove all non-digits
+    const cleaned = phone.replace(/\D/g, '');
+    
+    // Format as (XXX) XXX-XXXX for North American numbers
+    if (cleaned.length >= 10) {
+      const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})(\d*)$/);
+      if (match) {
+        let formatted = `(${match[1]}) ${match[2]}-${match[3]}`;
+        if (match[4]) formatted += ` ext. ${match[4]}`;
+        return formatted;
+      }
+    }
+    
+    return phone;
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,6 +84,9 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<{[key: string]: string}>({});
+  const [touched, setTouched] = useState<{[key: string]: boolean}>({});
 
   const contactInfo = [
     {
@@ -60,34 +121,119 @@ const ContactSection = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    // Format phone number as user types
+    let formattedValue = value;
+    if (name === 'phone') {
+      formattedValue = formatPhoneNumber(value);
+    }
+    
+    // Update form data
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: formattedValue
+    }));
+
+    // Validate field if it has been touched
+    if (touched[name]) {
+      const error = validateField(name, formattedValue);
+      setFieldErrors(prev => ({
+        ...prev,
+        [name]: error
+      }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    
+    // Mark field as touched
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+
+    // Validate field
+    const error = validateField(name, value);
+    setFieldErrors(prev => ({
+      ...prev,
+      [name]: error
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    console.log('🚀 ContactSection form submission started', formData);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        message: ''
+    // Validate all fields
+    const errors: {[key: string]: string} = {};
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key as keyof typeof formData]);
+      if (error) errors[key] = error;
+    });
+
+    // Check if there are any validation errors
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      setTouched({
+        name: true,
+        email: true,
+        phone: true,
+        company: true,
+        service: true,
+        message: true
       });
-    }, 3000);
+      console.log('❌ Form validation failed:', errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(false);
+    
+    try {
+      console.log('📡 Sending request to /api/contact from ContactSection');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log('📨 Response received:', response.status, response.statusText);
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('✅ Success:', result);
+        setIsSubmitted(true);
+        
+        // Reset form and validation states
+        setFieldErrors({});
+        setTouched({});
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            phone: '',
+            service: '',
+            message: ''
+          });
+        }, 3000);
+      } else {
+        const errorData = await response.json();
+        console.log('❌ Error response:', errorData);
+        setSubmitError(true);
+      }
+    } catch (error) {
+      console.error('💥 Error submitting form:', error);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -124,12 +270,30 @@ const ContactSection = () => {
                     {t('contact.form.success.message')}
                   </p>
                 </div>
+              ) : submitError ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
+                    <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">Failed to send message</h4>
+                  <p className="text-gray-600 mb-4">
+                    Please try again or contact us directly.
+                  </p>
+                  <button
+                    onClick={() => setSubmitError(false)}
+                    className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  >
+                    Try Again
+                  </button>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('contact.form.fields.name.label')}
+                        {t('contact.form.fields.name.label')} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -139,18 +303,29 @@ const ContactSection = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
+                          onBlur={handleBlur}
                           required
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
-                          style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
-                          onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 ${
+                            fieldErrors.name ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                          }`}
+                          style={fieldErrors.name ? {} : {'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
+                          onFocus={(e) => !fieldErrors.name && (e.target.style.borderColor = '#32B8F1')}
                           placeholder={t('contact.form.fields.name.placeholder')}
                         />
                       </div>
+                      {fieldErrors.name && touched.name && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {fieldErrors.name}
+                        </p>
+                      )}
                     </div>
                     
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        {t('contact.form.fields.email.label')}
+                        {t('contact.form.fields.email.label')} <span className="text-red-500">*</span>
                       </label>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -160,13 +335,24 @@ const ContactSection = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
+                          onBlur={handleBlur}
                           required
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
-                          style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
-                          onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 ${
+                            fieldErrors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                          }`}
+                          style={fieldErrors.email ? {} : {'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
+                          onFocus={(e) => !fieldErrors.email && (e.target.style.borderColor = '#32B8F1')}
                           placeholder={t('contact.form.fields.email.placeholder')}
                         />
                       </div>
+                      {fieldErrors.email && touched.email && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {fieldErrors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -183,6 +369,7 @@ const ContactSection = () => {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
+                          onBlur={handleBlur}
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
                           style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
                           onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
@@ -203,12 +390,23 @@ const ContactSection = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300"
-                          style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
-                          onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
+                          onBlur={handleBlur}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 ${
+                            fieldErrors.phone ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                          }`}
+                          style={fieldErrors.phone ? {} : {'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
+                          onFocus={(e) => !fieldErrors.phone && (e.target.style.borderColor = '#32B8F1')}
                           placeholder={t('contact.form.fields.phone.placeholder')}
                         />
                       </div>
+                      {fieldErrors.phone && touched.phone && (
+                        <p className="mt-1 text-sm text-red-600 flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {fieldErrors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -236,25 +434,42 @@ const ContactSection = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('contact.form.fields.message.label')}
+                      {t('contact.form.fields.message.label')} <span className="text-red-500">*</span>
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 resize-none"
-                      style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
-                      onFocus={(e) => e.target.style.borderColor = '#32B8F1'}
-                      placeholder={t('contact.form.fields.message.placeholder')}
-                    />
+                    <div className="relative">
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        required
+                        rows={5}
+                        maxLength={1000}
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-colors duration-300 resize-none ${
+                          fieldErrors.message ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-blue-200'
+                        }`}
+                        style={fieldErrors.message ? {} : {'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
+                        onFocus={(e) => !fieldErrors.message && (e.target.style.borderColor = '#32B8F1')}
+                        placeholder={t('contact.form.fields.message.placeholder')}
+                      />
+                      <div className="absolute bottom-2 right-3 text-xs text-gray-400">
+                        {formData.message.length}/1000
+                      </div>
+                    </div>
+                    {fieldErrors.message && touched.message && (
+                      <p className="mt-1 text-sm text-red-600 flex items-center">
+                        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {fieldErrors.message}
+                      </p>
+                    )}
                   </div>
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || Object.keys(fieldErrors).some(key => fieldErrors[key] !== '')}
                     className="w-full text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     style={{backgroundColor: '#FC32A2'}}
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'}

@@ -442,13 +442,12 @@
           "service": "Required Service",
           "servicePlaceholder": "Select a service",
           "serviceOptions": {
-            "ledSigns": "LED Signs",
-            "windowSigns": "Window Signs",
-            "pylons": "Pylons",
+            "custom": "Custom Signs and Lettering",
+            "printing": "Digital Printing", 
+            "awnings": "Awnings and Canopies",
             "wall": "Wall Covering",
-            "banners": "Banners",
-            "installation": "Installation",
-            "maintenance": "Maintenance"
+            "installation": "Installation Services",
+            "other": "Other"
           },
           "projectDetails": "Project Details *",
           "projectDetailsPlaceholder": "Describe your signage project...",
@@ -513,11 +512,11 @@
       ],
       "fields": {
         "name": {
-          "label": "Full Name *",
+          "label": "Full Name",
           "placeholder": "Your full name"
         },
         "email": {
-          "label": "Email Address *",
+          "label": "Email Address",
           "placeholder": "your@email.com"
         },
         "company": {
@@ -545,21 +544,24 @@
           "placeholder": "Select budget range"
         },
         "message": {
-          "label": "Project Details *",
+          "label": "Project Details",
           "placeholder": "Describe your signage project..."
         }
       },
       "button": {
-        "submit": "🚀 Get Free Quote",
+        "submit": "Get Free Quote",
         "sending": "Sending..."
       },
       "success": {
-        "title": "Thank You!",
-        "message": "We have received your message and will respond within 24 hours."
+        "title": "Message sent successfully!",
+        "message": "Thank you for contacting us. We'll get back to you within 24 hours."
       },
       "error": {
-        "message": "Something went wrong. Please try again."
-      }
+        "title": "Failed to send message",
+        "message": "Please try again or contact us directly at the information below."
+      },
+      "immediateAssistance": "Need immediate assistance?",
+      "quickResponse": "Quick Response • Free Consultation"
     },
     "info": {
       "phone": {
@@ -579,7 +581,11 @@
       "hours": {
         "title": "Opening Hours",
         "primary": "Mon - Fri: 8:00 AM - 5:00 PM",
-        "secondary": "Emergency: +1 (514) 691-2512"
+        "secondary": "Emergency: +1 (514) 691-2512",
+        "businessHours": "Business Hours",
+        "schedule": "Mon - Fri: 8:00 AM - 5:00 PM",
+        "emergency": "Emergency",
+        "availability": "Available 24/7"
       }
     },
     "quickCommunication": {
