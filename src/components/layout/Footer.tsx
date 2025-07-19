@@ -34,9 +34,7 @@ const Footer = () => {
     { name: t('footer.quickLinks.about'), href: '/about' },
     { name: t('footer.quickLinks.services'), href: '/services' },
     { name: t('footer.quickLinks.portfolio'), href: '/achievements' },
-    { name: t('footer.quickLinks.contact'), href: '/contact' },
-    { name: t('footer.quickLinks.quote'), href: '/quote' },
-    { name: t('footer.quickLinks.careers'), href: '/careers' }
+    { name: t('footer.quickLinks.contact'), href: '/#contact' }
   ];
 
   const certifications = [
@@ -148,10 +146,10 @@ const Footer = () => {
                 <div>
                   <div className="text-sm sm:text-base font-medium text-white">{t('footer.contact.phone.title')}</div>
                   <Link 
-                    href="tel:+15146912512"
+                    href="tel:+15143222069"
                     className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors duration-300"
                   >
-                    +1 (514) 691-2512
+                    +1 (514) 322-2069
                   </Link>
                   <div className="text-xs sm:text-sm text-gray-400">{t('footer.contact.phone.subtitle')}</div>
                 </div>
@@ -181,10 +179,15 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="text-sm sm:text-base font-medium text-white">{t('footer.contact.address.title')}</div>
-                  <div className="text-sm sm:text-base text-gray-300">
+                  <a 
+                    href="https://maps.google.com/maps?q=8236+Rue+Pascal-Gagnon,+Montréal,+QC,+Canada"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm sm:text-base text-gray-300 hover:text-white transition-colors duration-300 block"
+                  >
                     8236 Rue Pascal-Gagnon<br />
                     Montréal, QC
-                  </div>
+                  </a>
                   <div className="text-xs sm:text-sm text-gray-400">{t('footer.contact.address.subtitle')}</div>
                 </div>
               </div>

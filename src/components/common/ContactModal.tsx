@@ -303,7 +303,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">{t('contact.form.immediateAssistance')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <a 
-                  href="tel:+15146912512" 
+                  href="tel:+15143222069" 
                   className="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-blue-50 transition-all duration-200 group border border-gray-200 hover:border-blue-300"
                 >
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
@@ -313,7 +313,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                   </div>
                   <div>
                     <span className="text-sm text-gray-600">{t('contact.info.phone.title')}</span>
-                    <div className="font-semibold text-xs text-gray-900">+1 (514) 691-2512</div>
+                    <div className="font-semibold text-xs text-gray-900">+1 (514) 322-2069</div>
                   </div>
                 </a>
                 <a 

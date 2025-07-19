@@ -240,7 +240,6 @@ const StatsSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Enseignes MEDIAPRINT</div>
-                    <div className="text-gray-600 text-sm">Since 2013</div>
                   </div>
                 </div>
               </div>

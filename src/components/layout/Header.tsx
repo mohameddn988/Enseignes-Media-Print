@@ -69,12 +69,17 @@ const Header = () => {
           <div className="flex justify-between items-center text-sm py-1.5 sm:py-2">
             {/* Left side - Contact Info */}
             <div className="flex items-center space-x-4 lg:space-x-8">
-              <div className="hidden sm:flex items-center space-x-1.5 group">
+              <a 
+                href="https://maps.google.com/maps?q=8236+Rue+Pascal-Gagnon,+Montréal,+QC,+Canada"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center space-x-1.5 group cursor-pointer"
+              >
                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" style={{color: '#f16d7a'}} />
                 <span className="text-gray-300 group-hover:text-white transition-colors text-xs sm:text-sm truncate">
                   {t('header.address')}
                 </span>
-              </div>
+              </a>
               <div className="flex items-center space-x-1.5 group">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 transition-colors" style={{color: '#f16d7a'}} />
                 <span className="text-gray-300 group-hover:text-white transition-colors text-xs sm:text-sm whitespace-nowrap">
@@ -86,7 +91,7 @@ const Header = () => {
             {/* Right side - Contact Actions */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               <a 
-                href="tel:+15146912512" 
+                href="tel:+15143222069" 
                 className="flex items-center space-x-1.5 text-white px-2 sm:px-3 py-1 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm whitespace-nowrap"
                 style={{backgroundColor: '#32B8F1'}}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1595d1'}
@@ -174,7 +179,7 @@ const Header = () => {
               
               {/* WhatsApp Button */}
               <a
-                href="https://wa.me/15146912512"
+                href="https://wa.me/15143222069"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2 group"
@@ -236,7 +241,7 @@ const Header = () => {
               </div>
               
               <a
-                href="https://wa.me/15146912512"
+                href="https://wa.me/15143222069"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-2 text-white px-4 py-3 rounded-lg font-semibold w-full"

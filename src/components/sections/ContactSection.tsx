@@ -92,16 +92,17 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: t('contact.info.phone.title'),
-      primary: '+1 (514) 691-2512',
+      primary: '+1 (514) 322-2069',
       secondary: t('contact.info.phone.secondary'),
-      href: 'tel:+15146912512'
+      href: 'tel:+15143222069'
     },
     {
       icon: Mail,
       title: t('contact.info.email.title'),
       primary: 'enseignesmediaprint@gmail.com',
       secondary: t('contact.info.email.secondary'),
-      href: 'mailto:enseignesmediaprint@gmail.com'
+      href: 'mailto:enseignesmediaprint@gmail.com',
+      target: '_blank'
     },
   {
     icon: MapPin,
@@ -501,31 +502,48 @@ const ContactSection = () => {
                 return (
                   <div 
                     key={index}
-                    className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                    className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group cursor-pointer"
                   >
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-100">
-                        <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 mb-1">
-                          {info.title}
-                        </h4>
-                        {info.href ? (
-                          <a 
-                            href={info.href}
-                            className="text-gray-700 hover:text-gray-900 transition-colors duration-300 block"
-                          >
-                            {info.primary}
-                          </a>
-                        ) : (
+                    {info.href ? (
+                      <a 
+                        href={info.href}
+                        target={info.target || (info.href.startsWith('http') ? "_blank" : undefined)}
+                        rel={info.href.startsWith('http') || info.target === '_blank' ? "noopener noreferrer" : undefined}
+                        className="block"
+                      >
+                        <div className="flex items-start space-x-4">
+                          <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-100">
+                            <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-gray-900 mb-1">
+                              {info.title}
+                            </h4>
+                            <div className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
+                              {info.primary}
+                            </div>
+                            <div className="text-sm text-gray-500 mt-1">
+                              {info.secondary}
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-100">
+                          <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-blue-600" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-gray-900 mb-1">
+                            {info.title}
+                          </h4>
                           <div className="text-gray-700">{info.primary}</div>
-                        )}
-                        <div className="text-sm text-gray-500 mt-1">
-                          {info.secondary}
+                          <div className="text-sm text-gray-500 mt-1">
+                            {info.secondary}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 );
               })}
@@ -580,7 +598,7 @@ const ContactSection = () => {
               {/* Quick Communication Buttons */}
               <div className="space-y-3 mb-4">
                 <a
-                  href="https://wa.me/15146912512"
+                  href="https://wa.me/15143222069"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center px-4 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"

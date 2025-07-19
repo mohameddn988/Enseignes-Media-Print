@@ -35,7 +35,7 @@ const ServicesPage = () => {
     { color: "bg-orange-500", lightColor: "bg-orange-50", borderColor: "border-orange-200" },
     { color: "bg-purple-500", lightColor: "bg-purple-50", borderColor: "border-purple-200" }
   ];
-  const images = ["/CONCEPTION.png", "/fabrication.png", "/installation.jpg", "/gestion.png"];
+  const images = ["/gestion.png","/CONCEPTION.png", "/fabrication.png", "/installation.jpg"];
   
   const services = servicesData.map((service: any, index: number) => ({
     ...service,

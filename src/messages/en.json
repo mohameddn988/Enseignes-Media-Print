@@ -14,7 +14,7 @@
   "header": {
     "address": "8236 Pascal-Gagnon Street Montreal",
     "schedule": "8am-6pm | Emergency 24/7",
-    "phone": "514 691-2512",
+    "phone": "514 322-2069",
     "whatsapp": "WhatsApp",
     "moreInfo": "For more info"
   },
@@ -56,7 +56,7 @@
       "serviceDescription": "Professional installation and ongoing maintenance to ensure the durability and performance of your signage.",
       "details": [
         "Safe and compliant installation",
-        "24/7 support and maintenance",
+        "support and maintenance",
         "Maintenance and repair management"
       ],
       "badge": "Professional Installation",
@@ -263,7 +263,7 @@
         "features": [
           "LED conversion from fluorescent",
           "Electrical troubleshooting and repair",
-          "Emergency services available 24/7",
+          "Emergency services available",
           "Preventive maintenance programs"
         ],
         "category": "Service and Support"
@@ -276,7 +276,7 @@
     "titleEmphasis": "Excellence",
     "description": "Three decades of delivering exceptional signage solutions in Montreal. Our numbers speak to our commitment to quality and client satisfaction.",
     "partnerTitle": "Your Montreal Signage Partner",
-    "partnerDescription": "Since 2013, we've been the trusted choice for businesses in Montreal, providing innovative signage solutions that drive results and enhance brand visibility.",
+    "partnerDescription": "we've been the trusted choice for businesses in Montreal, providing innovative signage solutions that drive results and enhance brand visibility.",
     "yearsExperience": "Years of Experience",
     "yearsExperienceDesc": "Three decades of expertise in signage manufacturing and installation",
     "projectsCompleted": "Projects Completed",
@@ -525,7 +525,7 @@
         },
         "phone": {
           "label": "Phone Number",
-          "placeholder": "+1 (514) 691-2512"
+          "placeholder": "+1 (514) 322-2069"
         },
         "service": {
           "label": "Service Needed",
@@ -594,7 +594,7 @@
       "moreInfo": "More Info"
     },
     "emergency": {
-      "available": "Emergency services available 7/7",
+      "available": "Emergency services available 24/7",
       "line": "Emergency Line"
     }
   },
@@ -669,8 +669,7 @@
         "title": "3 decades of experience",
         "description": "Enseignes MEDIAPRINT has 30 years of expertise in the design, manufacturing, installation, and repair of signs and graphic displays. This expertise, combined with creativity and a commitment to staying at the forefront of technology, makes MEDIAPRINT a reference in the field.",
         "imageAlt": "Enseignes MEDIAPRINT Workshop",
-        "awardTitle": "Industry Leader",
-        "awardSubtitle": "Since 2013"
+        "awardTitle": "Industry Leader"
       },
       "mission": {
         "title": "Our Mission",
@@ -718,7 +717,6 @@
       "achievements": [
         {
           "id": 1,
-          "year": "2013",
           "title": "Company Foundation",
           "description": "Enseignes MEDIAPRINT was founded with the goal of revolutionizing the signage industry in Montreal.",
           "image": "/truck.png",
@@ -727,7 +725,6 @@
         },
         {
           "id": 2,
-          "year": "2015",
           "title": "Service Expansion",
           "description": "Large format printing and LED digital display technology",
           "image": "/enseigne_channel/Ags-Papa-john.jpg",
@@ -736,7 +733,6 @@
         },
         {
           "id": 4,
-          "year": "2023",
           "title": "Established Leadership",
           "description": "Consolidation of our leadership position with over 1500 projects completed and a team of dedicated experts.",
           "image": "/push_through_sign/enseignesAGS-Montreal.jpg",

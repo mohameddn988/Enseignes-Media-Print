@@ -106,8 +106,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
                 <div>
                   <h3 className="font-semibold text-secondary-900 mb-2">{t('contact.info.phone.title')}</h3>
                   <p className="text-secondary-600">
-                    <a href="tel:+15146912512" className="hover:text-primary-600 transition-colors">
-                      +1 (514) 691-2512
+                    <a href="tel:+15143222069" className="hover:text-primary-600 transition-colors">
+                      +1 (514) 322-2069
                     </a><br />
                     <span className="text-sm">{t('contact.info.hours.primary')}</span>
                   </p>

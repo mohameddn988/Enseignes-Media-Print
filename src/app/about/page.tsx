@@ -98,7 +98,7 @@ const AboutPage = () => {
             <div className="lg:col-span-5">
               <div className="relative">
                 <Image
-                  src="/thumbnail_20250131_125932.jpg"
+                  src="/AboutPage.jpg"
                   alt={t('about.page.hero.imageAlt')}
                   width={600}
                   height={400}
@@ -111,7 +111,6 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <div className="text-sm sm:text-base font-bold text-gray-900">{t('about.page.hero.awardTitle')}</div>
-                      <div className="text-xs sm:text-sm text-gray-600">{t('about.page.hero.awardSubtitle')}</div>
                     </div>
                   </div>
                 </div>

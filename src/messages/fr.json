@@ -14,7 +14,7 @@
   "header": {
     "address": "8236 Rue Pascal-Gagnon Montréal",
     "schedule": "8h-18h | Urgence 7/7",
-    "phone": "514 691-2512",
+    "phone": "514 322-2069",
     "whatsapp": "WhatsApp",
     "moreInfo": "Pour plus d'info"
   },
@@ -56,7 +56,7 @@
       "serviceDescription": "Installation professionnelle et maintenance continue pour assurer la durabilité et la performance de votre enseigne.",
       "details": [
         "Installation sécurisée et conforme",
-        "Support et maintenance 7/7",
+        "Support et maintenance",
         "Gestion de l'entretien et des réparations"
       ],
       "badge": "Installation professionnelle",
@@ -263,7 +263,7 @@
         "features": [
           "Conversion DEL depuis fluorescent",
           "Dépannage et réparation électrique",
-          "Services d'urgence disponible 24/7",
+          "Services d'urgence disponible",
           "Programmes d'entretien préventif"
         ],
         "category": "Service et assistance"
@@ -276,7 +276,7 @@
     "titleEmphasis": "prouvée",
     "description": "Trois décennies à fournir des solutions d'enseignes exceptionnelles à Montréal. Nos chiffres témoignent de notre engagement envers la qualité et la satisfaction client.",
     "partnerTitle": "Votre partenaire d'enseignes à Montréal",
-    "partnerDescription": "Depuis 2013, nous avons été le choix fiable pour les entreprises à Montréal, fournissant des solutions d'enseignes innovantes qui conduisent à des résultats et renforcent la visibilité de la marque.",
+    "partnerDescription": "nous avons été le choix fiable pour les entreprises à Montréal, fournissant des solutions d'enseignes innovantes qui conduisent à des résultats et renforcent la visibilité de la marque.",
     "yearsExperience": "Années d'expérience",
     "yearsExperienceDesc": "Trois décennies d'expertise en fabrication et installation d'enseignes",
     "projectsCompleted": "Projets réalisés",
@@ -525,7 +525,7 @@
         },
         "phone": {
           "label": "Numéro de téléphone",
-          "placeholder": "+1 (514) 691-2512"
+          "placeholder": "+1 (514) 322-2069"
         },
         "service": {
           "label": "Service requis",
@@ -585,7 +585,7 @@
         "businessHours": "Heures d'affaires",
         "schedule": "Lun - Ven : 8h00 - 17h00", 
         "emergency": "Urgence",
-        "availability": "Disponible 24/7"
+        "availability": "Disponible 7/7"
       }
     },
     "quickCommunication": {
@@ -669,8 +669,7 @@
         "title": "3 décennies d'expérience",
         "description": "Enseignes MEDIAPRINT possède 30 ans d'expertise dans la conception, la fabrication, l'installation et la réparation d'enseignes et de supports graphiques. Cette expertise, alliée à la créativité et à la volonté d'être à la pointe de la technologie, fait de MEDIAPRINT une référence dans le domaine.",
         "imageAlt": "Atelier Enseignes MEDIAPRINT",
-        "awardTitle": "Chef de file de l'industrie",
-        "awardSubtitle": "Depuis 2013"
+        "awardTitle": "Chef de file de l'industrie"
       },
       "mission": {
         "title": "Notre mission",
@@ -718,7 +717,6 @@
       "achievements": [
         {
           "id": 1,
-          "year": "2013",
           "title": "Fondation de l'entreprise",
           "description": "Enseignes MEDIAPRINT a été fondée avec la volonté de révolutionner l'industrie de l'enseigne à Montréal.",
           "image": "/truck.png",
@@ -727,7 +725,6 @@
         },
         {
           "id": 2,
-          "year": "2015",
           "title": "Expansion des services",
           "description": "impression grand format et Technologie d'affichage numérique LED",
           "image": "/enseigne_channel/Ags-Papa-john.jpg",
@@ -736,7 +733,6 @@
         },
         {
           "id": 4,
-          "year": "2023",
           "title": "Leadership établi",
           "description": "Consolidation de notre position de leader avec plus de 1500 projets réalisés et une équipe d'experts dédiés.",
           "image": "/push_through_sign/enseignesAGS-Montreal.jpg",
